@@ -1,0 +1,112 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "24.0.3"
+    defaultConfig {
+        applicationId "com.serecac.module_libraries"
+        minSdkVersion 16
+        targetSdkVersion 24
+        versionCode rootProject.ext.app_versionMajor * 1000000 + rootProject.ext.app_versionMinor * 1000 + rootProject.ext.app_versionPatch
+        versionName rootProject.ext.app_versionName
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+
+        release {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            debuggable true
+            minifyEnabled false
+        }
+    }
+
+    flavorDimensions "destination", "gateway"
+    productFlavors {
+
+        develop {
+            dimension "destination"
+            buildConfigField "boolean", "RETROFIT_LOG", "true"
+            buildConfigField "boolean", "GENERAL_LOG", "true"
+            buildConfigField "String", "API_URL", '"https://api.musica.personal.com.ar/"'
+            buildConfigField "int", "CONCURRENT_USE_CASE", "3"
+        }
+
+        production {
+            dimension "destination"
+            buildConfigField "boolean", "RETROFIT_LOG", "false"
+            buildConfigField "boolean", "GENERAL_LOG", "false"
+            buildConfigField "String", "API_URL", '"https://api.musica.personal.com.ar/"'
+            buildConfigField "int", "CONCURRENT_USE_CASE", "3"
+        }
+
+        local {
+            dimension "gateway"
+            buildConfigField "String", "GATEWAY", '"local"'
+        }
+
+        network {
+            dimension "gateway"
+            buildConfigField "String", "GATEWAY", '"network"'
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+
+                String fileName = "${rootProject.ext.app_nameApk}_${versionName}"
+                if (variant.name.toLowerCase().contains(android.buildTypes.debug.name)) {
+                    fileName = "${rootProject.ext.app_nameApk}_debug"
+                }
+
+                if (variant.productFlavors[0].name.equals("develop")) {
+                    fileName = "${fileName}-dev"
+                }
+
+                if (variant.productFlavors[1].name.equals("local")) {
+                    fileName = "${fileName}-local"
+                }
+
+                fileName = "${fileName}.apk"
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+    jcenter()
+}
+
+
+dependencies {
+    compile project(':ml_architecture')
+    compile project(':ml_feedback')
+    compile project(':ml_preference')
+    compile project(':ml_logs')
+    compile project(':ml_comunication')
+    compile project(':ml_version')
+
+    compile rootProject.ext.app_androidDependencies.androidSupportv7
+    compile rootProject.ext.app_androidDependencies.androidSupportv4
+    compile rootProject.ext.app_androidDependencies.androidSupportv13
+    compile rootProject.ext.app_androidDependencies.design
+}
+
+

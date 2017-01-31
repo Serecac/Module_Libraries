@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="default_widget_separator_height">20dp</dimen>
+
+    <dimen name="default_widget_title_textsize">7sp</dimen>
+    <dimen name="default_widget_title_imagesize">10dp</dimen>
+
+    <dimen name="widget_scrollbar_height">12dp</dimen>
+
+    <dimen name="widget_typeone_item_paddinstart" >3dp</dimen>
+
+    <dimen name="widget_background_cardcarousel_separator">10dp</dimen>
+    <dimen name="widget_background_cardcarousel_separator_small">5dp</dimen>
+
+</resources>

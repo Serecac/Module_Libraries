@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_separator_layout"
+    android:orientation="vertical"
+    android:background="@color/transparent"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/default_widget_separator_height">
+
+</LinearLayout>

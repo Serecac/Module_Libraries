@@ -1,0 +1,16 @@
+<resources>
+
+    <style name="ToolbarMenu_Theme" parent="ToolbarMenu_Theme.Base">
+
+    </style>
+
+    <style name="ToolbarMenu_Theme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="drawerArrowStyle">@style/ToolbarMenu_DrawerArrowStyle</item>
+    </style>
+
+    <style name="ToolbarMenu_DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
+    </style>
+
+</resources>

@@ -1,0 +1,70 @@
+apply plugin: 'com.android.library'
+
+android {
+
+    signingConfigs {
+        sing_ml {
+            keyAlias 'suzo'
+            keyPassword 'suzo123'
+            storeFile file(rootProject.projectDir.absolutePath + '/keySuzo.jks')
+            storePassword 'JJJsuzoTEAM'
+        }
+    }
+
+    compileSdkVersion 24
+    buildToolsVersion "24.0.3"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 24
+        versionCode rootProject.ext.ml_fonts_versionMajor * 1000000 + rootProject.ext.ml_fonts_versionMinor * 1000 + rootProject.ext.ml_fonts_versionPatch
+        versionName "${rootProject.ext.ml_fonts_versionName}"
+        setProperty("archivesBaseName", "${rootProject.ext.ml_fonts_nameApk}_Library")
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+        }
+        release {
+            minifyEnabled false
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.sing_ml
+        }
+    }
+
+    libraryVariants.all { variant ->
+        variant.outputs.each { output ->
+
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.aar')) {
+
+                def fileName = "${archivesBaseName}.aar"
+                if (variant.name == android.buildTypes.release.name) {
+                    fileName = "${archivesBaseName}-${rootProject.ext.ml_fonts_versionName}.aar"
+                } else if (variant.name == android.buildTypes.debug.name) {
+                    fileName = "${archivesBaseName}-debug.aar"
+                }
+
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile rootProject.ext.ml_fonts_androidDependencies.androidSupportv7
+    compile rootProject.ext.ml_fonts_androidDependencies.androidSupportv4
+    compile rootProject.ext.ml_fonts_androidDependencies.androidSupportv13
+    compile rootProject.ext.ml_fonts_androidDependencies.design
+
+    compile rootProject.ext.ml_fonts_testDependencies.junit
+}

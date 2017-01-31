@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/badrate_mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.25"
+        android:gravity="center"
+        android:paddingStart="@dimen/badrate_padding"
+        android:paddingLeft="@dimen/badrate_padding">
+
+        <TextView
+            android:id="@+id/badrate_title_text"
+            android:textAllCaps="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="@string/badrate_title"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/badrate_line_topseparator"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.005"/>
+
+    <LinearLayout
+        android:id="@+id/badrate_body_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.44"
+        android:weightSum="1"
+        android:baselineAligned="false"
+        android:padding="@dimen/badrate_bodyRate"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/badrate_body_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textCursorDrawable="@null"
+            android:gravity="top|start"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+        android:weightSum="1"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/badrate_padding"
+        android:paddingBottom="@dimen/badrate_padding">
+
+        <LinearLayout
+            android:id="@+id/badrate_nocomment_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.39"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/badrate_nocomment_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:text="@string/badrate_nocomment"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/badrate_line_bottomSeparator"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.003"/>
+
+        <LinearLayout
+            android:id="@+id/badrate_sendcomment_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.59"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/badrate_sendcomment_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:text="@string/badrate_sendcomment"/>
+
+        </LinearLayout>        
+
+    </LinearLayout>
+
+</LinearLayout>

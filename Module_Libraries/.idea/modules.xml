@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Module_Libraries.iml" filepath="$PROJECT_DIR$/Module_Libraries.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ml_architecture/ml_architecture.iml" filepath="$PROJECT_DIR$/ml_architecture/ml_architecture.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ml_comunication/ml_comunication.iml" filepath="$PROJECT_DIR$/ml_comunication/ml_comunication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ml_feedback/ml_feedback.iml" filepath="$PROJECT_DIR$/ml_feedback/ml_feedback.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ml_fonts/ml_fonts.iml" filepath="$PROJECT_DIR$/ml_fonts/ml_fonts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ml_login/ml_login.iml" filepath="$PROJECT_DIR$/ml_login/ml_login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ml_logs/ml_logs.iml" filepath="$PROJECT_DIR$/ml_logs/ml_logs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ml_maps/ml_maps.iml" filepath="$PROJECT_DIR$/ml_maps/ml_maps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ml_menu/ml_menu.iml" filepath="$PROJECT_DIR$/ml_menu/ml_menu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ml_preference/ml_preference.iml" filepath="$PROJECT_DIR$/ml_preference/ml_preference.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ml_toolbar/ml_toolbar.iml" filepath="$PROJECT_DIR$/ml_toolbar/ml_toolbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ml_utils/ml_utils.iml" filepath="$PROJECT_DIR$/ml_utils/ml_utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ml_version/ml_version.iml" filepath="$PROJECT_DIR$/ml_version/ml_version.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ml_widgets/ml_widgets.iml" filepath="$PROJECT_DIR$/ml_widgets/ml_widgets.iml" />
+    </modules>
+  </component>
+</project>

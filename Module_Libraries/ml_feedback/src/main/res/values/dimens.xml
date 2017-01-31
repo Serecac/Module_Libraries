@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="askrate_padding">8dp</dimen>
+    <dimen name="askrate_rate">12dp</dimen>
+    <dimen name="askrate_bodyRate">16dp</dimen>
+
+    <dimen name="badrate_padding">8dp</dimen>
+    <dimen name="badrate_rate">12dp</dimen>
+    <dimen name="badrate_bodyRate">16dp</dimen>
+</resources>

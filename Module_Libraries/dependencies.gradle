@@ -1,0 +1,169 @@
+allprojects {
+    ext {
+        supportLibraryVersion = "24.2.+"
+
+        /**************************************************************/
+        /***********************      SUZO      ***********************/
+        /**************************************************************/
+        app_androidDependencies = [androidSupportv7    : "com.android.support:appcompat-v7:$supportLibraryVersion",
+                               androidSupportv4         : "com.android.support:support-v4:$supportLibraryVersion",
+                               androidSupportv13        : "com.android.support:support-v13:$supportLibraryVersion",
+                               design                   : "com.android.support:design:$supportLibraryVersion"]
+
+        app_dependencies = [glide                      : "com.github.bumptech.glide:glide:3.5.2",
+                             dagger                     : "com.google.dagger:dagger:2.2",
+                             daggerCompiler             : "com.google.dagger:dagger-compiler:2.2",
+                             retrofit                   : "com.squareup.retrofit2:retrofit:2.1.0",
+                             gsonConverter              : "com.squareup.retrofit2:converter-gson:2.1.0",
+                             javapoet                   : "com.squareup:javapoet:1.7.0",
+                             butterknife                : "com.jakewharton:butterknife:7.0.1",
+                             gms_places                 : "com.google.android.gms:play-services-places:10.0.1",
+                             gms_analytics              : "com.google.android.gms:play-services-analytics:10.0.1"]
+
+        app_testDependencies = [junit: "junit:junit:4.12"]
+
+        /*************************************************************************/
+        /**********************      ML_ARCHITECTURE      ************************/
+        /*************************************************************************/
+        ml_architecture_androidDependencies = [androidSupportv7 : "com.android.support:appcompat-v7:$supportLibraryVersion",
+                                    androidSupportv4            : "com.android.support:support-v4:$supportLibraryVersion",
+                                    androidSupportv13           : "com.android.support:support-v13:$supportLibraryVersion",
+                                    design                      : "com.android.support:design:$supportLibraryVersion"]
+
+        ml_architecture_dependencies = [ threaddecoratedview        : "me.panavtec:threaddecoratedview-common:1.5.2",
+                                         threaddecoratedviewcompiler: "me.panavtec:threaddecoratedview-compiler:1.5.2",
+                                         loggingInterceptor         : "com.squareup.okhttp3:logging-interceptor:3.3.1",
+                                         dagger                     : "com.google.dagger:dagger:2.2",
+                                         daggerCompiler             : "com.google.dagger:dagger-compiler:2.2"]
+
+        ml_architecture_testDependencies = [junit: "junit:junit:4.12"]
+
+        /*************************************************************************/
+        /**********************      ML_COMUNICATION      ************************/
+        /*************************************************************************/
+        ml_comunication_androidDependencies = [androidSupportv7 : "com.android.support:appcompat-v7:$supportLibraryVersion",
+                                    androidSupportv4            : "com.android.support:support-v4:$supportLibraryVersion",
+                                    androidSupportv13           : "com.android.support:support-v13:$supportLibraryVersion",
+                                    design                      : "com.android.support:design:$supportLibraryVersion"]
+
+        ml_comunication_testDependencies = [junit: "junit:junit:4.12"]
+
+        /*********************************************************************/
+        /**********************      ML_FEEDBACK      ************************/
+        /*********************************************************************/
+        ml_feedback_androidDependencies = [androidSupportv7         : "com.android.support:appcompat-v7:$supportLibraryVersion",
+                                           androidSupportv4         : "com.android.support:support-v4:$supportLibraryVersion",
+                                           androidSupportv13        : "com.android.support:support-v13:$supportLibraryVersion",
+                                           design                   : "com.android.support:design:$supportLibraryVersion"]
+
+        ml_feedback_testDependencies = [junit: "junit:junit:4.12"]
+
+        /******************************************************************/
+        /**********************      ML_FONTS      ************************/
+        /******************************************************************/
+        ml_fonts_androidDependencies = [androidSupportv7        : "com.android.support:appcompat-v7:$supportLibraryVersion",
+                                        androidSupportv4         : "com.android.support:support-v4:$supportLibraryVersion",
+                                        androidSupportv13        : "com.android.support:support-v13:$supportLibraryVersion",
+                                        design                   : "com.android.support:design:$supportLibraryVersion"]
+
+        ml_fonts_testDependencies = [junit: "junit:junit:4.12"]
+
+        /******************************************************************/
+        /**********************      ML_LOGIN      ************************/
+        /******************************************************************/
+        ml_login_androidDependencies = [androidSupportv7        : "com.android.support:appcompat-v7:$supportLibraryVersion",
+                                        androidSupportv4         : "com.android.support:support-v4:$supportLibraryVersion",
+                                        androidSupportv13        : "com.android.support:support-v13:$supportLibraryVersion",
+                                        design                   : "com.android.support:design:$supportLibraryVersion"]
+
+        ml_login_testDependencies = [junit: "junit:junit:4.12"]
+
+        /*****************************************************************/
+        /**********************      ML_LOGS      ************************/
+        /*****************************************************************/
+        ml_logs_androidDependencies = [androidSupportv7 : "com.android.support:appcompat-v7:$supportLibraryVersion",
+                                   androidSupportv4     : "com.android.support:support-v4:$supportLibraryVersion",
+                                   androidSupportv13    : "com.android.support:support-v13:$supportLibraryVersion",
+                                   design               : "com.android.support:design:$supportLibraryVersion"]
+
+        ml_logs_dependencies = [ gsonConverter            : "com.squareup.retrofit2:converter-gson:2.1.0"]
+
+        ml_logs_testDependencies = [junit: "junit:junit:4.12"]
+
+        /*****************************************************************/
+        /**********************      ML_MAPS      ************************/
+        /*****************************************************************/
+        ml_maps_androidDependencies = [androidSupportv7        : "com.android.support:appcompat-v7:$supportLibraryVersion",
+                                        androidSupportv4         : "com.android.support:support-v4:$supportLibraryVersion",
+                                        androidSupportv13        : "com.android.support:support-v13:$supportLibraryVersion",
+                                        design                   : "com.android.support:design:$supportLibraryVersion"]
+
+        ml_maps_testDependencies = [junit: "junit:junit:4.12"]
+
+        /*****************************************************************/
+        /**********************      ML_MENU      ************************/
+        /*****************************************************************/
+        ml_menu_androidDependencies = [androidSupportv7 : "com.android.support:appcompat-v7:$supportLibraryVersion",
+                                   androidSupportv4     : "com.android.support:support-v4:$supportLibraryVersion",
+                                   androidSupportv13    : "com.android.support:support-v13:$supportLibraryVersion",
+                                   design               : "com.android.support:design:$supportLibraryVersion"]
+
+        ml_menu_testDependencies = [junit: "junit:junit:4.12"]
+
+        /***********************************************************************/
+        /**********************      ML_PREFERENCE      ************************/
+        /***********************************************************************/
+        ml_preference_androidDependencies = [androidSupportv7   : "com.android.support:appcompat-v7:$supportLibraryVersion",
+                                       androidSupportv4         : "com.android.support:support-v4:$supportLibraryVersion",
+                                       androidSupportv13        : "com.android.support:support-v13:$supportLibraryVersion",
+                                       design                   : "com.android.support:design:$supportLibraryVersion"]
+
+        ml_preference_dependencies = [ gsonConverter            : "com.squareup.retrofit2:converter-gson:2.1.0"]
+
+        ml_preference_testDependencies = [junit: "junit:junit:4.12"]
+
+        /********************************************************************/
+        /**********************      ML_TOOLBAR      ************************/
+        /********************************************************************/
+        ml_toolbar_androidDependencies = [androidSupportv7      : "com.android.support:appcompat-v7:$supportLibraryVersion",
+                                       androidSupportv4         : "com.android.support:support-v4:$supportLibraryVersion",
+                                       androidSupportv13        : "com.android.support:support-v13:$supportLibraryVersion",
+                                       design                   : "com.android.support:design:$supportLibraryVersion"]
+
+        ml_toolbar_dependencies = [materialMenu          : "com.balysv.materialmenu:material-menu-toolbar:1.5.2"]
+
+        ml_toolbar_testDependencies = [junit: "junit:junit:4.12"]
+
+        /******************************************************************/
+        /**********************      ML_UTILS      ************************/
+        /******************************************************************/
+        ml_utils_androidDependencies = [androidSupportv7        : "com.android.support:appcompat-v7:$supportLibraryVersion",
+                                           androidSupportv4         : "com.android.support:support-v4:$supportLibraryVersion",
+                                           androidSupportv13        : "com.android.support:support-v13:$supportLibraryVersion",
+                                           design                   : "com.android.support:design:$supportLibraryVersion"]
+
+        ml_utils_dependencies = [glide: "com.github.bumptech.glide:glide:3.5.2"]
+
+        ml_utils_testDependencies = [junit: "junit:junit:4.12"]
+
+        /********************************************************************/
+        /**********************      ML_VERSION      ************************/
+        /********************************************************************/
+        ml_version_androidDependencies = [  androidSupportv7        : "com.android.support:appcompat-v7:$supportLibraryVersion",
+                                            androidSupportv4        : "com.android.support:support-v4:$supportLibraryVersion",
+                                            androidSupportv13       : "com.android.support:support-v13:$supportLibraryVersion",
+                                            design                  : "com.android.support:design:$supportLibraryVersion"]
+
+        ml_version_testDependencies = [junit: "junit:junit:4.12"]
+
+        /********************************************************************/
+        /**********************      ML_WIDGETS      ************************/
+        /********************************************************************/
+        ml_widgets_androidDependencies = [androidSupportv7        : "com.android.support:appcompat-v7:$supportLibraryVersion",
+                                          androidSupportv4         : "com.android.support:support-v4:$supportLibraryVersion",
+                                          androidSupportv13        : "com.android.support:support-v13:$supportLibraryVersion",
+                                          design                   : "com.android.support:design:$supportLibraryVersion"]
+
+        ml_widgets_testDependencies = [junit: "junit:junit:4.12"]
+    }
+}

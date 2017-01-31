@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/ml_architecture" />
+            <option value="$PROJECT_DIR$/ml_comunication" />
+            <option value="$PROJECT_DIR$/ml_feedback" />
+            <option value="$PROJECT_DIR$/ml_fonts" />
+            <option value="$PROJECT_DIR$/ml_login" />
+            <option value="$PROJECT_DIR$/ml_logs" />
+            <option value="$PROJECT_DIR$/ml_maps" />
+            <option value="$PROJECT_DIR$/ml_menu" />
+            <option value="$PROJECT_DIR$/ml_preference" />
+            <option value="$PROJECT_DIR$/ml_toolbar" />
+            <option value="$PROJECT_DIR$/ml_utils" />
+            <option value="$PROJECT_DIR$/ml_version" />
+            <option value="$PROJECT_DIR$/ml_widgets" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
