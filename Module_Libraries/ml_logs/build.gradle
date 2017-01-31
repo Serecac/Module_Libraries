@@ -7,7 +7,7 @@ android {
             keyAlias 'ml'
             keyPassword 'ML123456'
             storeFile file(rootProject.projectDir.absolutePath + '/keyML.jks')
-            storePassword 'mk123ml'
+            storePassword 'ml123ml'
         }
     }
 
