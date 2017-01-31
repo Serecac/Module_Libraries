@@ -11,7 +11,7 @@ import com.ml.toolbar.ToolbarInfo;
  * @author Javier Cáceres
  * @version 1.0.0
  */
-public class ToolbarMenu_Childs {
+public class ToolBarMenu_Childs {
 
     private SparseArray<ToolbarMenu_Fragment> fragments = null;
     private SparseArray<ToolbarInfo> toolbars = null;
@@ -19,7 +19,7 @@ public class ToolbarMenu_Childs {
     /**
      * Instantiates a new ToolbarMenu_Childs.
      */
-    public ToolbarMenu_Childs() {
+    public ToolBarMenu_Childs() {
 
         fragments = new SparseArray<>();
         toolbars = new SparseArray<>();
@@ -42,7 +42,7 @@ public class ToolbarMenu_Childs {
      * @param newFragment the new fragment
      * @return the tool bar menu childs
      */
-    public ToolbarMenu_Childs addFragment(ToolbarMenu_Fragment newFragment) {
+    public ToolBarMenu_Childs addFragment(ToolbarMenu_Fragment newFragment) {
         if (fragments != null) {
             fragments.put(newFragment.getFragmentId(), newFragment);
         }
@@ -68,7 +68,7 @@ public class ToolbarMenu_Childs {
      * @param newToolbar the new toolbar
      * @return the tool bar menu childs
      */
-    public ToolbarMenu_Childs addToolbar(int fragmentId, ToolbarInfo newToolbar) {
+    public ToolBarMenu_Childs addToolbar(int fragmentId, ToolbarInfo newToolbar) {
         if (toolbars != null) {
             toolbars.put(fragmentId, newToolbar);
         }
@@ -97,7 +97,7 @@ public class ToolbarMenu_Childs {
      * @param newToolbar  the new toolbar
      * @return the tool bar menu childs
      */
-    public ToolbarMenu_Childs addChild(ToolbarMenu_Fragment newFragment, ToolbarInfo newToolbar) {
+    public ToolBarMenu_Childs addChild(ToolbarMenu_Fragment newFragment, ToolbarInfo newToolbar) {
         if (fragments != null) {
             fragments.put(newFragment.getFragmentId(), newFragment);
         }

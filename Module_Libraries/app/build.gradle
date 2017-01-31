@@ -94,7 +94,6 @@ repositories {
     jcenter()
 }
 
-
 dependencies {
     compile project(':ml_architecture')
     compile project(':ml_feedback')
@@ -102,11 +101,6 @@ dependencies {
     compile project(':ml_logs')
     compile project(':ml_comunication')
     compile project(':ml_version')
-
-    compile rootProject.ext.app_androidDependencies.androidSupportv7
-    compile rootProject.ext.app_androidDependencies.androidSupportv4
-    compile rootProject.ext.app_androidDependencies.androidSupportv13
-    compile rootProject.ext.app_androidDependencies.design
 }
 
 

@@ -19,7 +19,7 @@ android {
         targetSdkVersion 24
         versionCode rootProject.ext.ml_feedback_versionMajor * 1000000 + rootProject.ext.ml_feedback_versionMinor * 1000 + rootProject.ext.ml_feedback_versionPatch
         versionName "${rootProject.ext.ml_feedback_versionName}"
-        setProperty("archivesBaseName", "${rootProject.ext.ml_feedback_nameApk}_Library")
+        setProperty("archivesBaseName", "${rootProject.ext.ml_feedback_nameApk}")
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -45,9 +45,9 @@ android {
 
                 def fileName = "${archivesBaseName}.aar"
                 if (variant.name == android.buildTypes.release.name) {
-                    fileName = "${archivesBaseName}-${rootProject.ext.ml_feedback_versionName}.aar"
+                    fileName = "${archivesBaseName}_${rootProject.ext.ml_feedback_versionName}.aar"
                 } else if (variant.name == android.buildTypes.debug.name) {
-                    fileName = "${archivesBaseName}-debug.aar"
+                    fileName = "${archivesBaseName}_debug.aar"
                 }
 
                 output.outputFile = new File(outputFile.parent, fileName)

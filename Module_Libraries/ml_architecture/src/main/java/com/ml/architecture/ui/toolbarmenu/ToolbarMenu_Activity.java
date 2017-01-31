@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
-import com.ml.architecture.ui.toolbarmenu.childs.ToolbarMenu_Childs;
+import com.ml.architecture.ui.toolbarmenu.childs.ToolBarMenu_Childs;
 import com.ml.menu.MenuListener;
 import com.ml.menu.MenuManager;
 import com.ml.menu.items.MenuGenericItem;
@@ -31,7 +31,7 @@ public abstract class ToolbarMenu_Activity extends AppCompatActivity {
     /**
      * The Childs.
      */
-    protected ToolbarMenu_Childs childs = null;
+    protected ToolBarMenu_Childs childs = null;
     /**
      * The Actual fragment id.
      */

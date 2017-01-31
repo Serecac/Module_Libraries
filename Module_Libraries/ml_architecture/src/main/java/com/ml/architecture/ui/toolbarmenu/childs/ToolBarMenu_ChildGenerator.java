@@ -9,7 +9,7 @@ import android.content.Context;
  * @author Javier Cáceres
  * @version 1.0.0
  */
-public interface ToolbarMenu_ChildGenerator {
+public interface ToolBarMenu_ChildGenerator {
 
     /**
      * Generate ToolbarMenu_Childs array.
@@ -17,5 +17,5 @@ public interface ToolbarMenu_ChildGenerator {
      * @param context the context
      * @return the tool bar menu childs
      */
-    ToolbarMenu_Childs generate(Context context);
+    ToolBarMenu_Childs generate(Context context);
 }

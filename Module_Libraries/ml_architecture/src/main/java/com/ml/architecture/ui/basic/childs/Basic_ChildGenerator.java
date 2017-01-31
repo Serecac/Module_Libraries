@@ -3,10 +3,6 @@ package com.ml.architecture.ui.basic.childs;
 import android.content.Context;
 import android.util.SparseArray;
 
-import com.ml.architecture.ui.toolbarmenu.childs.ToolbarMenu_Childs;
-
-import java.util.ArrayList;
-
 /**
  * <p> Interface Basic_ChildGenerator </p>
  * Helps to generate Basic_Fragment array

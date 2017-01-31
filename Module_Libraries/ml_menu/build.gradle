@@ -4,10 +4,10 @@ android {
 
     signingConfigs {
         sing_ml {
-            keyAlias 'suzo'
-            keyPassword 'suzo123'
-            storeFile file(rootProject.projectDir.absolutePath + '/keySuzo.jks')
-            storePassword 'JJJsuzoTEAM'
+            keyAlias 'ml'
+            keyPassword 'ML123456'
+            storeFile file(rootProject.projectDir.absolutePath + '/keyML.jks')
+            storePassword 'mk123ml'
         }
     }
 
@@ -19,7 +19,7 @@ android {
         targetSdkVersion 24
         versionCode rootProject.ext.ml_menu_versionMajor * 1000000 + rootProject.ext.ml_menu_versionMinor * 1000 + rootProject.ext.ml_menu_versionPatch
         versionName "${rootProject.ext.ml_menu_versionName}"
-        setProperty("archivesBaseName", "${rootProject.ext.ml_menu_nameApk}_Library")
+        setProperty("archivesBaseName", "${rootProject.ext.ml_menu_nameApk}")
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -45,9 +45,9 @@ android {
 
                 def fileName = "${archivesBaseName}.aar"
                 if (variant.name == android.buildTypes.release.name) {
-                    fileName = "${archivesBaseName}-${rootProject.ext.ml_menu_versionName}.aar"
+                    fileName = "${archivesBaseName}_${rootProject.ext.ml_menu_versionName}.aar"
                 } else if (variant.name == android.buildTypes.debug.name) {
-                    fileName = "${archivesBaseName}-debug.aar"
+                    fileName = "${archivesBaseName}_debug.aar"
                 }
 
                 output.outputFile = new File(outputFile.parent, fileName)
