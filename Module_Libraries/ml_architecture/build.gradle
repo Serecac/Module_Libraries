@@ -20,7 +20,6 @@ android {
         versionCode rootProject.ext.ml_architecture_versionMajor * 1000000 + rootProject.ext.ml_architecture_versionMinor * 1000 + rootProject.ext.ml_architecture_versionPatch
         versionName "${rootProject.ext.ml_architecture_versionName}"
         setProperty("archivesBaseName", "${rootProject.ext.ml_architecture_nameApk}")
-        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -53,10 +52,6 @@ android {
                 output.outputFile = new File(outputFile.parent, fileName)
             }
         }
-    }
-
-    lintOptions {
-        abortOnError false
     }
 }
 
