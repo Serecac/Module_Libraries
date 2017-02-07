@@ -2,9 +2,9 @@ allprojects {
     ext {
         supportLibraryVersion = "24.2.+"
 
-        /**************************************************************/
-        /***********************      SUZO      ***********************/
-        /**************************************************************/
+        /*************************************************************/
+        /***********************      APP      ***********************/
+        /*************************************************************/
         app_androidDependencies = [androidSupportv7    : "com.android.support:appcompat-v7:$supportLibraryVersion",
                                androidSupportv4         : "com.android.support:support-v4:$supportLibraryVersion",
                                androidSupportv13        : "com.android.support:support-v13:$supportLibraryVersion",
