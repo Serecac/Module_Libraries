@@ -1,52 +1,52 @@
-package com.ml.fonts;
+package com.ml.fonts.editext;
 
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.widget.TextView;
+import android.widget.EditText;
 
 /**
- * <p> TextView_OpenSans </p>
+ * <p> EditText_OpenSans_Semibold </p>
  *
  * @author Javier Cáceres
- * @version 1.0.0
+ * @version 1.1.0
  */
-public class TextView_OpenSans extends TextView {
+public class EditText_OpenSans_Semibold extends EditText {
 
     /**
-     * Instantiates a new TextView_OpenSans.
+     * Instantiates a new EditText_OpenSans_Semibold.
      *
      * @param context the context
      */
-    public TextView_OpenSans(Context context) {
+    public EditText_OpenSans_Semibold(Context context) {
         super(context);
         setTypeFace(context);
     }
 
     /**
-     * Instantiates a new TextView_OpenSans.
+     * Instantiates a new EditText_OpenSans_Semibold.
      *
      * @param context the context
      * @param attrs   the attrs
      */
-    public TextView_OpenSans(Context context, AttributeSet attrs) {
+    public EditText_OpenSans_Semibold(Context context, AttributeSet attrs) {
         super(context, attrs);
         setTypeFace(context);
     }
 
     /**
-     * Instantiates a new TextView_OpenSans.
+     * Instantiates a new EditText_OpenSans_Semibold.
      *
      * @param context      the context
      * @param attrs        the attrs
      * @param defStyleAttr the def style attr
      */
-    public TextView_OpenSans(Context context, AttributeSet attrs, int defStyleAttr) {
+    public EditText_OpenSans_Semibold(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         setTypeFace(context);
     }
 
     private void setTypeFace(Context context){
-        this.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/OpenSans-Regular.ttf"));
+        this.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/OpenSans-Semibold.ttf"));
     }
 }

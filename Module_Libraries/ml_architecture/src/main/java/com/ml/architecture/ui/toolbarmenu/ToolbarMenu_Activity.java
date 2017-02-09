@@ -53,8 +53,9 @@ public abstract class ToolbarMenu_Activity extends AppCompatActivity {
         if (config.isWantMenu())
             MenuManager.init(this,findViewById(android.R.id.content),config.getMenuConfig(),getMenuItems(),menuListener);
 
-        if (config.isWantToolbar())
-            ToolbarManager.init(this,findViewById(android.R.id.content),config.getToolbarConfig(),toolbarListener);
+        if (config.isWantToolbar()) {
+            ToolbarManager.init(this, findViewById(android.R.id.content), config.getToolbarConfig(), toolbarListener);
+        }
 
         if (childs != null && childs.getOneFragment(config.getFirstFragmentId()) != null)
             changeFragment(config.getFirstFragmentId(), false, 0, 0);

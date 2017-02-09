@@ -1,52 +1,52 @@
-package com.ml.fonts;
+package com.ml.fonts.editext;
 
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.widget.TextView;
+import android.widget.EditText;
 
 /**
- * <p> TextView_OpenSans_Italic </p>
+ * <p> EditText_OpenSans </p>
  *
  * @author Javier Cáceres
- * @version 1.0.0
+ * @version 1.1.0
  */
-public class TextView_OpenSans_Italic extends TextView {
+public class EditText_OpenSans_BoldItalic extends EditText {
 
     /**
-     * Instantiates a new TextView_OpenSans_Italic.
+     * Instantiates a new EditText_OpenSans_BoldItalic.
      *
      * @param context the context
      */
-    public TextView_OpenSans_Italic(Context context) {
+    public EditText_OpenSans_BoldItalic(Context context) {
         super(context);
         setTypeFace(context);
     }
 
     /**
-     * Instantiates a new TextView_OpenSans_Italic.
+     * Instantiates a new EditText_OpenSans_BoldItalic.
      *
      * @param context the context
      * @param attrs   the attrs
      */
-    public TextView_OpenSans_Italic(Context context, AttributeSet attrs) {
+    public EditText_OpenSans_BoldItalic(Context context, AttributeSet attrs) {
         super(context, attrs);
         setTypeFace(context);
     }
 
     /**
-     * Instantiates a new TextView_OpenSans_Italic.
+     * Instantiates a new EditText_OpenSans_BoldItalic.
      *
      * @param context      the context
      * @param attrs        the attrs
      * @param defStyleAttr the def style attr
      */
-    public TextView_OpenSans_Italic(Context context, AttributeSet attrs, int defStyleAttr) {
+    public EditText_OpenSans_BoldItalic(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         setTypeFace(context);
     }
 
     private void setTypeFace(Context context){
-        this.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/OpenSans-Italic.ttf"));
+        this.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/OpenSans-BoldItalic.ttf"));
     }
 }

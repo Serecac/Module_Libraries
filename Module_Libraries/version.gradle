@@ -23,7 +23,7 @@ allprojects {
         /**********************      ML_COMUNICATION      ************************/
         /*************************************************************************/
         ml_comunication_versionMajor = 1
-        ml_comunication_versionMinor = 0
+        ml_comunication_versionMinor = 1
         ml_comunication_versionPatch = 0
         ml_comunication_nameApk = "ML_Comunication"
         ml_comunication_versionName = "${ml_comunication_versionMajor}.${ml_comunication_versionMinor}.${ml_comunication_versionPatch}"
@@ -41,7 +41,7 @@ allprojects {
         /**********************      ML_FONTS      ************************/
         /******************************************************************/
         ml_fonts_versionMajor = 1
-        ml_fonts_versionMinor = 0
+        ml_fonts_versionMinor = 1
         ml_fonts_versionPatch = 0
         ml_fonts_nameApk = "ML_Fonts"
         ml_fonts_versionName = "${ml_fonts_versionMajor}.${ml_fonts_versionMinor}.${ml_fonts_versionPatch}"

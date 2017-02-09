@@ -89,6 +89,20 @@ public class ComunicatorManager {
     }
 
     /**
+     * Suscribe Comunicator to channel.
+     * @see Comunicator
+     * @see Channel
+     *
+     * @param channelId     the channel id
+     * @param comunicatorId the comunicator id
+     */
+    public void suscribeToChannel(int channelId, int comunicatorId){
+        if (channels != null && channels.indexOfKey(channelId) >= 0 && comunicators != null && comunicators.indexOfKey(comunicatorId) >= 0){
+            channels.get(channelId).addComunicator(comunicatorId,comunicators.get(comunicatorId));
+        }
+    }
+
+    /**
      * Comunicator leave a channel.
      * @see Comunicator
      * @see Channel
