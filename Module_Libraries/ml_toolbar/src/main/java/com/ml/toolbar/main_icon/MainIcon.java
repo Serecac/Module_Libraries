@@ -74,8 +74,9 @@ public interface MainIcon {
      *
      * @param isOpen the is open
      * @param offset the offset
+     * @param action the action
      */
-    void onSlide(boolean isOpen, float offset);
+    void onSlide(boolean isOpen, float offset, int action);
 
     /**
      * Sets state.

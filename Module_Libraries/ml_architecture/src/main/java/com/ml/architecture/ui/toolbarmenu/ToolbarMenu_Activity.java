@@ -135,7 +135,7 @@ public abstract class ToolbarMenu_Activity extends AppCompatActivity {
                 if (isMenuOpened) {
                     ToolbarManager.getInstance().setMainIconState(MainIcon.MAIN_ACTION_BACK);
                 } else {
-                    ToolbarManager.getInstance().setMainIconState(MainIcon.MAIN_ACTION_MENU);
+                    ToolbarManager.getInstance().setSaveActionIconState();
                 }
             }
         }
@@ -144,15 +144,18 @@ public abstract class ToolbarMenu_Activity extends AppCompatActivity {
     private ToolbarListener toolbarListener = new ToolbarListener() {
         @Override
         public void onMainIconClick(int action) {
+            MenuManager menuManager = MenuManager.getInstance();
             if (action == MainIcon.MAIN_ACTION_MENU && config.isWantMenu()) {
-                MenuManager menuManager = MenuManager.getInstance();
                 if (menuManager.isMenuOpen()) {
                     menuManager.closeMenu();
                 } else {
                     menuManager.openMenu();
                 }
             } else {
-                onClickMainBottom(action);
+                if (menuManager.isMenuOpen())
+                    menuManager.closeMenu();
+                else
+                    onClickMainBottom(action);
             }
         }
 

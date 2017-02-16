@@ -10,10 +10,10 @@ import com.balysv.materialmenu.extras.toolbar.MaterialMenuIconToolbar;
 /**
  * <p> Class MainIcon_MaterialMenu </p>
  * Implements MainIcon with external library
- * @see MainIcon
  *
  * @author jcaceres
  * @version 1.0.0
+ * @see MainIcon
  */
 public class MainIcon_MaterialMenu implements MainIcon {
 
@@ -116,13 +116,20 @@ public class MainIcon_MaterialMenu implements MainIcon {
      * @param offset the offset
      */
     @Override
-    public void onSlide(boolean isOpen, float offset) {
+    public void onSlide(boolean isOpen, float offset, int action) {
 
         if (materialMenu != null) {
-            materialMenu.setTransformationOffset(
-                    MaterialMenuDrawable.AnimationState.BURGER_ARROW,
-                    isOpen ? 2 - offset : offset
-            );
+            switch (action) {
+                case MainIcon.MAIN_ACTION_MENU:
+                    materialMenu.setTransformationOffset(MaterialMenuDrawable.AnimationState.BURGER_ARROW, isOpen ? 2 - offset : offset);
+                    break;
+                case MainIcon.MAIN_ACTION_ACCEPT:
+                    materialMenu.setTransformationOffset(MaterialMenuDrawable.AnimationState.ARROW_CHECK, isOpen ? 1 + offset :1 - offset);
+                    break;
+                case MainIcon.MAIN_ACTION_CANCEL:
+                    materialMenu.setTransformationOffset(MaterialMenuDrawable.AnimationState.ARROW_X, isOpen ? 1 + offset : 1 - offset);
+                    break;
+            }
         }
     }
 

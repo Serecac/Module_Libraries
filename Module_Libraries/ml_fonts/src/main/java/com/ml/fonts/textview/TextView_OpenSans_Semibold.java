@@ -25,7 +25,7 @@ public class TextView_OpenSans_Semibold extends TextView {
 
     /**
      * Instantiates a new TextView_OpenSans_Semibold.
-     *
+     *r
      * @param context the context
      * @param attrs   the attrs
      */

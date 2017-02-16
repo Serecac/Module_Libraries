@@ -209,6 +209,11 @@ public class ToolbarManager {
         mainIcon.setState(state);
     }
 
+    public void setSaveActionIconState(){
+        mainIcon.setState(mainAction);
+    }
+
+
     /**
      * Set mainIcon slide offset.
      *
@@ -216,7 +221,7 @@ public class ToolbarManager {
      * @param offset     the offset
      */
     public void setMainIconSlide(boolean isMenuOpen, float offset){
-        mainIcon.onSlide(isMenuOpen,offset);
+        mainIcon.onSlide(isMenuOpen,offset,mainAction);
     }
 
     /**

@@ -15,7 +15,7 @@ allprojects {
         /*************************************************************************/
         ml_architecture_versionMajor = 1
         ml_architecture_versionMinor = 0
-        ml_architecture_versionPatch = 0
+        ml_architecture_versionPatch = 1
         ml_architecture_nameApk = "ML_Architecture"
         ml_architecture_versionName = "${ml_architecture_versionMajor}.${ml_architecture_versionMinor}.${ml_architecture_versionPatch}"
 
@@ -95,7 +95,7 @@ allprojects {
         /**********************      ML_TOOLBAR      ************************/
         /********************************************************************/
         ml_toolbar_versionMajor = 1
-        ml_toolbar_versionMinor = 0
+        ml_toolbar_versionMinor = 1
         ml_toolbar_versionPatch = 0
         ml_toolbar_nameApk = "ML_Toolbar"
         ml_toolbar_versionName = "${ml_toolbar_versionMajor}.${ml_toolbar_versionMinor}.${ml_toolbar_versionPatch}"
