@@ -78,7 +78,7 @@ allprojects {
         /*****************************************************************/
         ml_menu_versionMajor = 1
         ml_menu_versionMinor = 0
-        ml_menu_versionPatch = 0
+        ml_menu_versionPatch = 1
         ml_menu_nameApk = "ML_Menu"
         ml_menu_versionName = "${ml_menu_versionMajor}.${ml_menu_versionMinor}.${ml_menu_versionPatch}"
 

@@ -197,4 +197,24 @@ public class MenuManager {
     public void closeMenu() {
         menuDrawerLayout.closeDrawers();
     }
+
+    /**
+     * Gets id select item.
+     *
+     * @return the id select item
+     */
+    public int getIdSelectItem() {
+        return idSelectItem;
+    }
+
+    /**
+     * Sets id select item.
+     *
+     * @param idSelectItem the id select item
+     */
+    public void setIdSelectItem(int idSelectItem) {
+        this.idSelectItem = idSelectItem;
+        menuAdapter.updateSelectedItem(idSelectItem);
+        menuAdapter.notifyDataSetChanged();
+    }
 }
