@@ -15,7 +15,7 @@ android {
     buildToolsVersion "24.0.3"
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 14
         targetSdkVersion 24
         versionCode rootProject.ext.ml_feedback_versionMajor * 1000000 + rootProject.ext.ml_feedback_versionMinor * 1000 + rootProject.ext.ml_feedback_versionPatch
         versionName "${rootProject.ext.ml_feedback_versionName}"

@@ -104,7 +104,7 @@ allprojects {
         /**********************      ML_UTILS      ************************/
         /******************************************************************/
         ml_utils_versionMajor = 1
-        ml_utils_versionMinor = 0
+        ml_utils_versionMinor = 1
         ml_utils_versionPatch = 0
         ml_utils_nameApk = "ML_Utils"
         ml_utils_versionName = "${ml_utils_versionMajor}.${ml_utils_versionMinor}.${ml_utils_versionPatch}"
