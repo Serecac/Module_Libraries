@@ -96,7 +96,7 @@ allprojects {
         /********************************************************************/
         ml_toolbar_versionMajor = 1
         ml_toolbar_versionMinor = 1
-        ml_toolbar_versionPatch = 0
+        ml_toolbar_versionPatch = 1
         ml_toolbar_nameApk = "ML_Toolbar"
         ml_toolbar_versionName = "${ml_toolbar_versionMajor}.${ml_toolbar_versionMinor}.${ml_toolbar_versionPatch}"
 

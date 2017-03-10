@@ -93,14 +93,6 @@ public class ToolbarManager {
         this.firstButton = (ImageButton) toolbar.findViewById(toolbarConfig.getToolbarFirsButtonId());
         this.secondButton = (ImageButton) toolbar.findViewById(toolbarConfig.getToolbarSecondButtonId());
 
-        titleTexview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "msg msg", Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
         if (firstButton != null) {
             ((View) firstButton.getParent()).setOnClickListener(new View.OnClickListener() {
                 @Override
