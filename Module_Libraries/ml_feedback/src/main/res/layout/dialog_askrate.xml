@@ -132,16 +132,17 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.3"
-        android:weightSum="1"
         android:baselineAligned="false"
         android:orientation="horizontal"
+        android:paddingBottom="@dimen/askrate_padding"
         android:paddingTop="@dimen/askrate_padding"
-        android:paddingBottom="@dimen/askrate_padding">
+        android:weightSum="1">
 
         <LinearLayout
             android:id="@+id/askrate_remindLater_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:padding="@dimen/askrate_padding"
             android:layout_weight="0.33"
             android:gravity="center">
 
@@ -150,22 +151,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textAllCaps="true"
-                android:text="@string/askrate_remindlater"/>
+                android:text="@string/askrate_remindlater"
+                android:textAllCaps="true" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/askrate_line_firstBottomSeparator"
-            android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.003"/>
+            android:layout_weight="0.003"
+            android:orientation="vertical" />
 
         <LinearLayout
             android:id="@+id/askrate_norate_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:padding="@dimen/askrate_padding"
             android:layout_weight="0.33"
             android:gravity="center">
 
@@ -174,22 +176,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textAllCaps="true"
-                android:text="@string/askrate_norate"/>
+                android:text="@string/askrate_norate"
+                android:textAllCaps="true" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/askrate_line_secondBottomSeparator"
-            android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.003"/>
+            android:layout_weight="0.003"
+            android:orientation="vertical" />
 
         <LinearLayout
             android:id="@+id/askrate_rate_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:padding="@dimen/askrate_padding"
             android:layout_weight="0.33"
             android:gravity="center">
 
@@ -198,8 +201,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textAllCaps="true"
-                android:text="@string/askrate_rate"/>
+                android:text="@string/askrate_rate"
+                android:textAllCaps="true" />
 
         </LinearLayout>
 
