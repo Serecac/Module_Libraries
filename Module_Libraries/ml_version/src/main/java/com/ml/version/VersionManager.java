@@ -211,7 +211,7 @@ public class VersionManager {
 
     private void showForceUpdateDialog(final LogcatWritter logcatWritter, final Context context) {
 
-        if (forceUpdateDialog == null) {
+        if (forceUpdateDialog == null || !forceUpdateDialog.isShowing()) {
             forceUpdateDialog = new ForceUpdateDialog(context, config);
 
             forceUpdateDialog.setOnUpdateListener(new ForceUpdateDialog.OnUpdateListener() {
