@@ -26,6 +26,102 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:padding="@dimen/askrate_bodyRate"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:id="@+id/askrate_firstrate_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:padding="@dimen/askrate_rate">
+
+            <ImageView
+                android:id="@+id/askrate_firstrate_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/star_1_unselected" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/askrate_secondrate_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:padding="@dimen/askrate_rate">
+
+            <ImageView
+                android:id="@+id/askrate_secondrate_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/star_1_unselected" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/askrate_thirdrate_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:padding="@dimen/askrate_rate">
+
+            <ImageView
+                android:id="@+id/askrate_thirdrate_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/star_1_unselected" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/askrate_fourthrstrate_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:padding="@dimen/askrate_rate">
+
+            <ImageView
+                android:id="@+id/askrate_fourthrstrate_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/star_1_unselected" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/askrate_fifthrate_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:padding="@dimen/askrate_rate">
+
+            <ImageView
+                android:id="@+id/askrate_fifthrate_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/star_1_unselected" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/askrate_line_topseparator"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -35,103 +131,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.445"
-        android:weightSum="1"
-        android:baselineAligned="false"
-        android:padding="@dimen/askrate_bodyRate"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:id="@+id/askrate_firstrate_button"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:padding="@dimen/askrate_rate"
-            android:layout_weight="0.2">
-
-            <ImageView
-                android:id="@+id/askrate_firstrate_image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitCenter"
-                android:src="@drawable/star_1_unselected"
-                android:background="@null"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/askrate_secondrate_button"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:padding="@dimen/askrate_rate"
-            android:layout_weight="0.2">
-
-            <ImageView
-                android:id="@+id/askrate_secondrate_image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitCenter"
-                android:src="@drawable/star_1_unselected"
-                android:background="@null"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/askrate_thirdrate_button"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:padding="@dimen/askrate_rate"
-            android:layout_weight="0.2">
-
-            <ImageView
-                android:id="@+id/askrate_thirdrate_image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitCenter"
-                android:src="@drawable/star_1_unselected"
-                android:background="@null"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/askrate_fourthrstrate_button"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:padding="@dimen/askrate_rate"
-            android:layout_weight="0.2">
-
-            <ImageView
-                android:id="@+id/askrate_fourthrstrate_image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitCenter"
-                android:src="@drawable/star_1_unselected"
-                android:background="@null"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/askrate_fifthrate_button"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:padding="@dimen/askrate_rate"
-            android:layout_weight="0.2">
-
-            <ImageView
-                android:id="@+id/askrate_fifthrate_image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitCenter"
-                android:src="@drawable/star_1_unselected"
-                android:background="@null"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.3"
+        android:layout_weight="0.345"
         android:baselineAligned="false"
         android:orientation="horizontal"
         android:paddingBottom="@dimen/askrate_padding"
@@ -143,7 +143,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:padding="@dimen/askrate_padding"
-            android:layout_weight="0.33"
+            android:layout_weight="0.3"
             android:gravity="center">
 
             <TextView
