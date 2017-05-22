@@ -1,3 +1,4 @@
 1.0.0 - Initial version
 1.0.1 - Padding on buttons int AskRateDialog layout
 1.0.2 - Set bigger percentage for AskRateDialog bottom buttons
+1.1.0 - Return startCount on badfeedback

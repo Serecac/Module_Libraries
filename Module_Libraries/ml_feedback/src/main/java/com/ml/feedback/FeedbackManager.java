@@ -46,7 +46,7 @@ public class FeedbackManager {
         this.context = context;
         this.onNegativeRateReceive = new OnNegativeRateReceive() {
             @Override
-            public void onNegativeRateReceive(String string) {
+            public void onNegativeRateReceive(String string, int stars) {
 
             }
         };
@@ -131,7 +131,7 @@ public class FeedbackManager {
                     if (countStars >= MIN_ACCEPTABLE_STARS)
                         launchMarket(logcatWritter);
                     else
-                        badRate(context);
+                        badRate(context, countStars);
                     dialog.dismiss();
                     askRateDialog = null;
                 }
@@ -150,7 +150,7 @@ public class FeedbackManager {
         }
     }
 
-    private void badRate(final Context context) {
+    private void badRate(final Context context, final int starts) {
 
         if (badRateDialog == null){
             badRateDialog = new BadRateDialog(context, config);
@@ -174,7 +174,7 @@ public class FeedbackManager {
                 @Override
                 public void onSendComment(Dialog dialog, String comment) {
                     Utils_Dialog.centerCustomiczeToastMessage(config.getDialogTextColor(),config.getDialogMainColor(),context.getString(R.string.feedback_thanks),context);
-                    onNegativeRateReceive.onNegativeRateReceive(comment);
+                    onNegativeRateReceive.onNegativeRateReceive(comment, starts);
                     dialog.dismiss();
                     badRateDialog = null;
                 }
@@ -232,6 +232,6 @@ public class FeedbackManager {
          *
          * @param string the string
          */
-        void onNegativeRateReceive(String string);
+        void onNegativeRateReceive(String string, int stars);
     }
 }
