@@ -2,3 +2,4 @@
 1.0.1 - Padding on buttons int AskRateDialog layout
 1.0.2 - Set bigger percentage for AskRateDialog bottom buttons
 1.1.0 - Return startCount on badfeedback
+1.1.1 - Add flag when open market (fix error when call intent outside activity without NEW_TASK flag)

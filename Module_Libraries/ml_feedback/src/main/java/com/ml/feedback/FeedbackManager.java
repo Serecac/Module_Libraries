@@ -204,6 +204,7 @@ public class FeedbackManager {
     private void launchMarket(LogcatWritter logcatWritter) {
         Uri uri = Uri.parse("market://details?id=" + context.getPackageName());
         Intent myAppLinkToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        myAppLinkToMarket.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         try {
             context.startActivity(myAppLinkToMarket);
         } catch (ActivityNotFoundException exce) {
