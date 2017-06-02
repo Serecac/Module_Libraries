@@ -166,7 +166,7 @@ public class VersionManager {
                 showNotification(context);
                 break;
             case TYPE_TOAST:
-                Utils_Dialog.centerCustomiczeToastMessage(config.getDialogTextColor(), config.getDialogMainColor(), config.getTextUpdate(), context);
+                Utils_Dialog.centerCustomiczeToastMessage(config.getDialogTextColor(), config.getDialogMainColor(), config.getTextUpdate(), context, Utils_Dialog.DURATION_LONG);
                 break;
             case TYPE_DIALOG:
                 showUpdateDialog(logcatWritter, context);

@@ -263,7 +263,7 @@ public class AskRateDialog extends Dialog {
                 if (countStart > 0)
                     onRateListener.onRate(instance,countStart);
                 else
-                    Utils_Dialog.centerCustomiczeToastMessage(config.getDialogTextColor(),config.getDialogMainColor(),context.getString(R.string.askrate_messsage),context);
+                    Utils_Dialog.centerCustomiczeToastMessage(config.getDialogTextColor(),config.getDialogMainColor(),context.getString(R.string.askrate_messsage),context, Utils_Dialog.DURATION_LONG);
             }
         });
 

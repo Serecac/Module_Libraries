@@ -195,7 +195,7 @@ public class BadRateDialog extends Dialog {
                     imm.hideSoftInputFromWindow(messageText.getWindowToken(), 0);
                     onSendComment.onSendComment(instance, messageText.getText().toString());
                 } else
-                    Utils_Dialog.centerCustomiczeToastMessage(config.getDialogTextColor(),config.getDialogMainColor(),context.getString(R.string.badrate_messsage),context);
+                    Utils_Dialog.centerCustomiczeToastMessage(config.getDialogTextColor(),config.getDialogMainColor(),context.getString(R.string.badrate_messsage),context, Utils_Dialog.DURATION_LONG);
 
             }
         });

@@ -16,14 +16,17 @@ import android.widget.Toast;
  */
 public class Utils_Dialog {
 
+    public static final int DURATION_SHORT = 0;
+    public static final int DURATION_LONG = 1;
+
     /**
      * Show toast applying gravity center to message text
      *
      * @param message the message
      * @param context the context
      */
-    public static void centerToastMessage(String message, Context context){
-        Toast toast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
+    public static void centerToastMessage(String message, Context context, int duration){
+        Toast toast = Toast.makeText(context, message, duration == DURATION_LONG ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT);
         TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
         if( v != null) v.setGravity(Gravity.CENTER);
         toast.show();
@@ -37,8 +40,8 @@ public class Utils_Dialog {
      * @param message         the message
      * @param context         the context
      */
-    public static void centerCustomiczeToastMessage(int colorText, int colorBackground, String message, Context context){
-        Toast toast = Toast.makeText(context, "  " + message.replace("\n","  \n  ") + "  ", Toast.LENGTH_SHORT);
+    public static void centerCustomiczeToastMessage(int colorText, int colorBackground, String message, Context context, int duration){
+        Toast toast = Toast.makeText(context, "  " + message.replace("\n","  \n  ") + "  ", duration == DURATION_LONG ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT);
         View view = toast.getView();
         view.setBackgroundColor(colorBackground);
         TextView text = (TextView) toast.getView().findViewById(android.R.id.message);

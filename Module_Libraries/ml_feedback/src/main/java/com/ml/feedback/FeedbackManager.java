@@ -173,7 +173,7 @@ public class FeedbackManager {
             badRateDialog.setOnSendCommentListener(new BadRateDialog.OnSendComment() {
                 @Override
                 public void onSendComment(Dialog dialog, String comment) {
-                    Utils_Dialog.centerCustomiczeToastMessage(config.getDialogTextColor(),config.getDialogMainColor(),context.getString(R.string.feedback_thanks),context);
+                    Utils_Dialog.centerCustomiczeToastMessage(config.getDialogTextColor(),config.getDialogMainColor(),context.getString(R.string.feedback_thanks),context, Utils_Dialog.DURATION_LONG);
                     onNegativeRateReceive.onNegativeRateReceive(comment, starts);
                     dialog.dismiss();
                     badRateDialog = null;
