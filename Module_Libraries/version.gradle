@@ -83,6 +83,15 @@ allprojects {
         ml_menu_versionName = "${ml_menu_versionMajor}.${ml_menu_versionMinor}.${ml_menu_versionPatch}"
 
         /***********************************************************************/
+        /**********************      ML_PERMISSION      ************************/
+        /***********************************************************************/
+        ml_permission_versionMajor = 1
+        ml_permission_versionMinor = 0
+        ml_permission_versionPatch = 0
+        ml_permission_nameApk = "ML_Permission"
+        ml_permission_versionName = "${ml_permission_versionMajor}.${ml_permission_versionMinor}.${ml_permission_versionPatch}"
+
+        /***********************************************************************/
         /**********************      ML_PREFERENCE      ************************/
         /***********************************************************************/
         ml_preference_versionMajor = 1
@@ -104,8 +113,8 @@ allprojects {
         /**********************      ML_UTILS      ************************/
         /******************************************************************/
         ml_utils_versionMajor = 1
-        ml_utils_versionMinor = 2
-        ml_utils_versionPatch = 0
+        ml_utils_versionMinor = 1
+        ml_utils_versionPatch = 3
         ml_utils_nameApk = "ML_Utils"
         ml_utils_versionName = "${ml_utils_versionMajor}.${ml_utils_versionMinor}.${ml_utils_versionPatch}"
 

@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "24.0.3"
+    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "com.serecac.module_libraries"
         minSdkVersion 16
@@ -92,6 +92,11 @@ repositories {
         dirs 'libs'
     }
     jcenter()
+}
+
+configurations {
+    all*.exclude group: 'com.google.guava'
+    all*.exclude group: 'com.squareup', module: 'javapoet'
 }
 
 dependencies {

@@ -5,9 +5,6 @@ import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
 
-/**
- * Created by jcaceres on 17/06/2016.
- */
 public class WrapContentHeight_Refresh_ViewPager extends ViewPager {
 
     private View mCurrentView;

@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/ml_fonts/ml_fonts.iml" filepath="$PROJECT_DIR$/ml_fonts/ml_fonts.iml" />
       <module fileurl="file://$PROJECT_DIR$/ml_logs/ml_logs.iml" filepath="$PROJECT_DIR$/ml_logs/ml_logs.iml" />
       <module fileurl="file://$PROJECT_DIR$/ml_menu/ml_menu.iml" filepath="$PROJECT_DIR$/ml_menu/ml_menu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ml_pemission/ml_pemission.iml" filepath="$PROJECT_DIR$/ml_pemission/ml_pemission.iml" />
       <module fileurl="file://$PROJECT_DIR$/ml_preference/ml_preference.iml" filepath="$PROJECT_DIR$/ml_preference/ml_preference.iml" />
       <module fileurl="file://$PROJECT_DIR$/ml_toolbar/ml_toolbar.iml" filepath="$PROJECT_DIR$/ml_toolbar/ml_toolbar.iml" />
       <module fileurl="file://$PROJECT_DIR$/ml_utils/ml_utils.iml" filepath="$PROJECT_DIR$/ml_utils/ml_utils.iml" />

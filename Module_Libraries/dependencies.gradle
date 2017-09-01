@@ -91,6 +91,16 @@ allprojects {
         ml_menu_testDependencies = [junit: "junit:junit:4.12"]
 
         /***********************************************************************/
+        /**********************      ML_PERMISSION      ************************/
+        /***********************************************************************/
+        ml_permission_androidDependencies = [androidSupportv7        : "com.android.support:appcompat-v7:$supportLibraryVersion",
+                                        androidSupportv4         : "com.android.support:support-v4:$supportLibraryVersion",
+                                        androidSupportv13        : "com.android.support:support-v13:$supportLibraryVersion",
+                                        design                   : "com.android.support:design:$supportLibraryVersion"]
+
+        ml_permission_testDependencies = [junit: "junit:junit:4.12"]
+
+        /***********************************************************************/
         /**********************      ML_PREFERENCE      ************************/
         /***********************************************************************/
         ml_preference_androidDependencies = [androidSupportv7   : "com.android.support:appcompat-v7:$supportLibraryVersion",

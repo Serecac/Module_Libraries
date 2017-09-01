@@ -12,7 +12,7 @@ android {
     }
 
     compileSdkVersion 24
-    buildToolsVersion "24.0.3"
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         minSdkVersion 14
@@ -56,6 +56,7 @@ android {
 }
 
 configurations {
+    all*.exclude group: 'com.google.guava'
     all*.exclude group: 'com.squareup', module: 'javapoet'
 }
 

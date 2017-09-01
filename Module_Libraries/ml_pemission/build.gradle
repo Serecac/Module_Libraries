@@ -17,9 +17,9 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 24
-        versionCode rootProject.ext.ml_fonts_versionMajor * 1000000 + rootProject.ext.ml_fonts_versionMinor * 1000 + rootProject.ext.ml_fonts_versionPatch
-        versionName "${rootProject.ext.ml_fonts_versionName}"
-        setProperty("archivesBaseName", "${rootProject.ext.ml_fonts_nameApk}")
+        versionCode rootProject.ext.ml_permission_versionMajor * 1000000 + rootProject.ext.ml_permission_versionMinor * 1000 + rootProject.ext.ml_permission_versionPatch
+        versionName "${rootProject.ext.ml_permission_versionName}"
+        setProperty("archivesBaseName", "${rootProject.ext.ml_permission_nameApk}")
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -44,7 +44,7 @@ android {
 
                 def fileName = "${archivesBaseName}.aar"
                 if (variant.name == android.buildTypes.release.name) {
-                    fileName = "${archivesBaseName}_${rootProject.ext.ml_fonts_versionName}.aar"
+                    fileName = "${archivesBaseName}_${rootProject.ext.ml_permission_versionName}.aar"
                 } else if (variant.name == android.buildTypes.debug.name) {
                     fileName = "${archivesBaseName}_debug.aar"
                 }
@@ -55,16 +55,24 @@ android {
     }
 }
 
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+    jcenter()
+}
+
 configurations {
     all*.exclude group: 'com.google.guava'
     all*.exclude group: 'com.squareup', module: 'javapoet'
 }
 
 dependencies {
-    compile rootProject.ext.ml_fonts_androidDependencies.androidSupportv7
-    compile rootProject.ext.ml_fonts_androidDependencies.androidSupportv4
-    compile rootProject.ext.ml_fonts_androidDependencies.androidSupportv13
-    compile rootProject.ext.ml_fonts_androidDependencies.design
+    compile project(':ml_preference')
 
-    compile rootProject.ext.ml_fonts_testDependencies.junit
+    compile rootProject.ext.ml_permission_androidDependencies.androidSupportv7
+    compile rootProject.ext.ml_permission_androidDependencies.androidSupportv4
+    compile rootProject.ext.ml_permission_androidDependencies.androidSupportv13
+    compile rootProject.ext.ml_permission_androidDependencies.design
+    compile rootProject.ext.ml_permission_testDependencies.junit
 }
