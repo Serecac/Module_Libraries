@@ -41,7 +41,7 @@ allprojects {
         /**********************      ML_FONTS      ************************/
         /******************************************************************/
         ml_fonts_versionMajor = 1
-        ml_fonts_versionMinor = 1
+        ml_fonts_versionMinor = 2
         ml_fonts_versionPatch = 0
         ml_fonts_nameApk = "ML_Fonts"
         ml_fonts_versionName = "${ml_fonts_versionMajor}.${ml_fonts_versionMinor}.${ml_fonts_versionPatch}"
@@ -50,7 +50,7 @@ allprojects {
         /**********************      ML_LOGIN     ************************/
         /*****************************************************************/
         ml_login_versionMajor = 1
-        ml_login_versionMinor = 0
+        ml_login_versionMinor = 1
         ml_login_versionPatch = 0
         ml_login_nameApk = "ML_Login"
         ml_login_versionName = "${ml_login_versionMajor}.${ml_login_versionMinor}.${ml_login_versionPatch}"
