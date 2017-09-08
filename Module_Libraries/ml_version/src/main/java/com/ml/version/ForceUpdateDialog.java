@@ -10,13 +10,6 @@ import android.widget.TextView;
 
 import com.ml.utils.utils.Utils_Dimen;
 
-/**
- * <p> Class ForceUpdateDialog </p>
- * Dialog for show a new update is available and mandatory
- *
- * @author Javier Cáceres
- * @version 1.0.0
- */
 public class ForceUpdateDialog extends Dialog {
 
     private final double PERCENTAGE_WIDH = 0.95;
@@ -36,12 +29,6 @@ public class ForceUpdateDialog extends Dialog {
 
     private Dialog instance;
 
-    /**
-     * Instantiates a new ForceUpdateDialog.
-     *
-     * @param context the context
-     * @param config  the config
-     */
     public ForceUpdateDialog(Context context, VersionConfig config) {
         super(context);
         this.config = config;
@@ -63,6 +50,7 @@ public class ForceUpdateDialog extends Dialog {
         findViews();
         setColor();
         setDinamicSize();
+        setTypeface();
         prepareListeners();
     }
 
@@ -93,6 +81,20 @@ public class ForceUpdateDialog extends Dialog {
         this.titleText.setTextColor(config.getDialogTextColor());
         this.updateText.setTextColor(config.getDialogTextColor());
         this.descriptionText.setTextColor(config.getDialogTextColor());
+    }
+
+
+
+    /**
+     * Set typeface
+     */
+    public void setTypeface(){
+
+        if (config.isHasTypeface() && config.getTypeface() != null){
+            this.titleText.setTypeface(config.getTypeface());
+            this.updateText.setTypeface(config.getTypeface());
+            this.descriptionText.setTypeface(config.getTypeface());
+        }
     }
 
     /**

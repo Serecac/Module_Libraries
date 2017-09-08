@@ -13,16 +13,9 @@ import com.ml.preference.PreferenceManager;
 import com.ml.utils.utils.Utils_Dialog;
 
 import static com.ml.feedback.FeedbackBadConfigException.FEEDBACK_EXCEPTION_BADCONFIG;
-import static com.ml.feedback.FeedbackConfig.INT_DEFUALT;
+import static com.ml.feedback.FeedbackConfig.INT_DEFAULT;
 import static com.ml.feedback.FeedbackGenericException.FEEDBACK_EXCEPTION_NOTCREATED;
 
-/**
- * <p> Class FeedbackManager </p>
- * Manage information from users to developers
- *
- * @author Javier Cáceres
- * @version 1.0.0
- */
 public class FeedbackManager {
 
     private static FeedbackManager instance = null;
@@ -35,12 +28,6 @@ public class FeedbackManager {
 
     private OnNegativeRateReceive onNegativeRateReceive;
 
-    /**
-     * Instantiates a new Feedback manager.
-     *
-     * @param config  the config
-     * @param context the context
-     */
     public FeedbackManager(FeedbackConfig config, Context context){
         this.config = config;
         this.context = context;
@@ -52,13 +39,6 @@ public class FeedbackManager {
         };
     }
 
-    /**
-     * Init.
-     *
-     * @param config  the config
-     * @param context the context
-     * @throws FeedbackBadConfigException the feedback bad config exception
-     */
     public static void init(FeedbackConfig config, Context context) throws FeedbackBadConfigException {
 
         if (checkConfig(config))
@@ -67,11 +47,6 @@ public class FeedbackManager {
             throw new FeedbackBadConfigException(FEEDBACK_EXCEPTION_BADCONFIG);
     }
 
-    /**
-     * Get instance feedback manager.
-     *
-     * @return the feedback manager
-     */
     public static FeedbackManager getInstance(){
 
         if (instance == null)
@@ -80,13 +55,6 @@ public class FeedbackManager {
         return instance;
     }
 
-    /**
-     * Attempt rate.
-     *
-     * @param preferenceManager    the preferenceManager
-     * @param logcatWritter the logcat writter
-     * @param context       the context
-     */
     public void attemptRate(PreferenceManager preferenceManager, LogcatWritter logcatWritter, Context context){
 
         int attempts = preferenceManager.getInt(PREFERENCE_ATTEMPTS_OPENAPP);
@@ -186,16 +154,16 @@ public class FeedbackManager {
 
     private static boolean checkConfig(FeedbackConfig config){
 
-        if (config.getParentHeight() == INT_DEFUALT || config.getParentWidth()  == INT_DEFUALT)
+        if (config.getParentHeight() == INT_DEFAULT || config.getParentWidth()  == INT_DEFAULT)
             return false;
 
-        if (config.getAttemptToRate() == INT_DEFUALT)
+        if (config.getAttemptToRate() == INT_DEFAULT)
             return false;
 
         //noinspection RedundantIfStatement
-        if (config.getDialogMainColor() == INT_DEFUALT ||
-                config.getDialogSecondColor() == INT_DEFUALT ||
-                config.getDialogTextColor() == INT_DEFUALT)
+        if (config.getDialogMainColor() == INT_DEFAULT ||
+                config.getDialogSecondColor() == INT_DEFAULT ||
+                config.getDialogTextColor() == INT_DEFAULT)
             return false;
 
         return true;
@@ -215,24 +183,12 @@ public class FeedbackManager {
         }
     }
 
-    /**
-     * Set on negative rate receive lister.
-     *
-     * @param onNegativeRateReceiveLister the on negative rate receive lister
-     */
     public void setOnNegativeRateReceiveLister(OnNegativeRateReceive onNegativeRateReceiveLister){
         this.onNegativeRateReceive = onNegativeRateReceiveLister;
     }
 
-    /**
-     * The interface On negative rate receive.
-     */
     public interface OnNegativeRateReceive{
-        /**
-         * On negative rate receive.
-         *
-         * @param string the string
-         */
+
         void onNegativeRateReceive(String string, int stars);
     }
 }

@@ -12,13 +12,6 @@ import android.widget.TextView;
 import com.ml.utils.utils.Utils_Dialog;
 import com.ml.utils.utils.Utils_Dimen;
 
-/**
- * <p> Class UpdateDialog </p>
- * Dialog for show a new update is available
- *
- * @author Javier Cáceres
- * @version 1.0.0
- */
 public class UpdateDialog extends Dialog {
 
     private final double PERCENTAGE_WIDH = 0.95;
@@ -41,12 +34,6 @@ public class UpdateDialog extends Dialog {
 
     private Dialog instance;
 
-    /**
-     * Instantiates a new UpdateDialog.
-     *
-     * @param context the context
-     * @param config  the config
-     */
     public UpdateDialog(Context context, VersionConfig config) {
         super(context);
         this.config = config;
@@ -68,6 +55,7 @@ public class UpdateDialog extends Dialog {
         findViews();
         setColor();
         setDinamicSize();
+        setTypeface();
         prepareListeners();
     }
 
@@ -104,6 +92,19 @@ public class UpdateDialog extends Dialog {
         this.noUpdateText.setTextColor(config.getDialogTextColor());
         this.updateText.setTextColor(config.getDialogTextColor());
         this.descriptionText.setTextColor(config.getDialogTextColor());
+    }
+
+    /**
+     * Set typeface
+     */
+    public void setTypeface(){
+
+        if (config.isHasTypeface() && config.getTypeface() != null){
+            this.titleText.setTypeface(config.getTypeface());
+            this.noUpdateText.setTypeface(config.getTypeface());
+            this.updateText.setTypeface(config.getTypeface());
+            this.descriptionText.setTypeface(config.getTypeface());
+        }
     }
 
     /**

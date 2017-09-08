@@ -1,19 +1,10 @@
 package com.ml.feedback;
 
-/**
- * <p> Class FeedbackConfig </p>
- * Configuratin used in FeedbackManager.
- * @see FeedbackManager
- *
- * @author Javier Cáceres
- * @version 1.0.0
- */
+import android.graphics.Typeface;
+
 public class FeedbackConfig {
 
-    /**
-     * The constant INT_DEFUALT, for control default values.
-     */
-    public static final int INT_DEFUALT = 0;
+    public static final int INT_DEFAULT = 0;
 
     private int dialogMainColor;
     private int dialogSecondColor;
@@ -24,142 +15,92 @@ public class FeedbackConfig {
 
     private int attemptToRate;
 
-    /**
-     * Instantiates a new Feedback config.
-     */
+    private boolean hasTypeface;
+    private Typeface typeface;
+
     public FeedbackConfig() {
-        this.dialogMainColor = INT_DEFUALT;
-        this.dialogSecondColor = INT_DEFUALT;
-        this.dialogTextColor = INT_DEFUALT;
-        this.parentHeight = INT_DEFUALT;
-        this.parentWidth = INT_DEFUALT;
-        this.attemptToRate = INT_DEFUALT;
+        this.dialogMainColor = INT_DEFAULT;
+        this.dialogSecondColor = INT_DEFAULT;
+        this.dialogTextColor = INT_DEFAULT;
+        this.parentHeight = INT_DEFAULT;
+        this.parentWidth = INT_DEFAULT;
+        this.attemptToRate = INT_DEFAULT;
+        this.hasTypeface = false;
+        this.typeface = null;
     }
 
-    /**
-     * Instantiates a new Feedback config.
-     *
-     * @param dialogMainColor   the dialog main color
-     * @param dialogSecondColor the dialog second color
-     * @param dialogTextColor   the dialog text color
-     * @param parentHeight      the parent height
-     * @param parentWidth       the parent width
-     * @param attemptToRate     the attempt to rate
-     */
-    public FeedbackConfig(int dialogMainColor, int dialogSecondColor, int dialogTextColor, int parentHeight, int parentWidth, int attemptToRate) {
+    public FeedbackConfig(int dialogMainColor, int dialogSecondColor, int dialogTextColor, int parentHeight, int parentWidth, int attemptToRate, boolean hasTypeface, Typeface typeface) {
         this.dialogMainColor = dialogMainColor;
         this.dialogSecondColor = dialogSecondColor;
         this.dialogTextColor = dialogTextColor;
         this.parentHeight = parentHeight;
         this.parentWidth = parentWidth;
         this.attemptToRate = attemptToRate;
+        this.hasTypeface = hasTypeface;
+        this.typeface = typeface;
     }
 
-    /**
-     * Gets dialog text color.
-     *
-     * @return the dialog text color
-     */
     public int getDialogTextColor() {
         return dialogTextColor;
     }
 
-    /**
-     * Sets dialog text color.
-     *
-     * @param dialogTextColor the dialog text color
-     */
     public void setDialogTextColor(int dialogTextColor) {
         this.dialogTextColor = dialogTextColor;
     }
 
-    /**
-     * Gets dialog second color.
-     *
-     * @return the dialog second color
-     */
     public int getDialogSecondColor() {
         return dialogSecondColor;
     }
 
-    /**
-     * Sets dialog second color.
-     *
-     * @param dialogSecondColor the dialog second color
-     */
     public void setDialogSecondColor(int dialogSecondColor) {
         this.dialogSecondColor = dialogSecondColor;
     }
 
-    /**
-     * Gets dialog main color.
-     *
-     * @return the dialog main color
-     */
     public int getDialogMainColor() {
         return dialogMainColor;
     }
 
-    /**
-     * Sets dialog main color.
-     *
-     * @param dialogMainColor the dialog main color
-     */
     public void setDialogMainColor(int dialogMainColor) {
         this.dialogMainColor = dialogMainColor;
     }
 
-    /**
-     * Gets parent height.
-     *
-     * @return the parent height
-     */
     public int getParentHeight() {
         return parentHeight;
     }
 
-    /**
-     * Sets parent height.
-     *
-     * @param parentHeight the parent height
-     */
     public void setParentHeight(int parentHeight) {
         this.parentHeight = parentHeight;
     }
 
-    /**
-     * Gets parent width.
-     *
-     * @return the parent width
-     */
     public int getParentWidth() {
         return parentWidth;
     }
 
-    /**
-     * Sets parent width.
-     *
-     * @param parentWidth the parent width
-     */
     public void setParentWidth(int parentWidth) {
         this.parentWidth = parentWidth;
     }
 
-    /**
-     * Gets attempt to rate.
-     *
-     * @return the attempt to rate
-     */
     public int getAttemptToRate() {
         return attemptToRate;
     }
 
-    /**
-     * Sets attempt to rate.
-     *
-     * @param attemptToRate the attempt to rate
-     */
     public void setAttemptToRate(int attemptToRate) {
         this.attemptToRate = attemptToRate;
+    }
+
+    public boolean isHasTypeface() {
+        return hasTypeface;
+    }
+
+    public void setHasTypeface(boolean hasTypeface) {
+        this.hasTypeface = hasTypeface;
+    }
+
+    public Typeface getTypeface() {
+        return typeface;
+    }
+
+    public void setTypeface(Typeface typeface) {
+        this.typeface = typeface;
     }
 }

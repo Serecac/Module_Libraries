@@ -14,14 +14,7 @@ import android.widget.TextView;
 import com.ml.utils.utils.Utils_Dialog;
 import com.ml.utils.utils.Utils_Dimen;
 
-/**
- * <p> Class BadRateDialog </p>
- * Dialog for getting bad comments to prevent user from do it on Play Store
- *
- * @see AskRateDialog
- * @author Javier Cáceres
- * @version 1.0.0
- */
+
 public class BadRateDialog extends Dialog {
 
     private final double PERCENTAGE_WIDH = 0.95;
@@ -50,12 +43,6 @@ public class BadRateDialog extends Dialog {
     private Context context;
     private FeedbackConfig config;
 
-    /**
-     * Instantiates a new Bad rate dialog.
-     *
-     * @param context the context
-     * @param config  the config
-     */
     public BadRateDialog(Context context, FeedbackConfig config) {
         super(context);
         this.config = config;
@@ -78,6 +65,7 @@ public class BadRateDialog extends Dialog {
         setColor();
         setDinamicSize();
         prepareListeners();
+        setTypeface();
 
         //Open Keyboard
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
@@ -142,6 +130,19 @@ public class BadRateDialog extends Dialog {
         this.messageText.setBackgroundColor(config.getDialogMainColor());
 
         this.messageBody.setBackgroundColor(config.getDialogSecondColor());
+    }
+
+    /**
+     * Set typeface
+     */
+    public void setTypeface(){
+
+        if (config.isHasTypeface() && config.getTypeface() != null){
+            this.titleText.setTypeface(config.getTypeface());
+            this.noCommentText.setTypeface(config.getTypeface());
+            this.sendCommentText.setTypeface(config.getTypeface());
+            this.messageText.setTypeface(config.getTypeface());
+        }
     }
 
     /**

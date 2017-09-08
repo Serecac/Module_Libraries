@@ -16,9 +16,9 @@ import com.ml.utils.utils.Utils_Dimen;
  * <p> Class AskRateDialog </p>
  * Dialog for getting feedback from users and good rates on Play Store
  *
- * @see BadRateDialog
  * @author Javier Cáceres
  * @version 1.0.0
+ * @see BadRateDialog
  */
 public class AskRateDialog extends Dialog {
 
@@ -71,7 +71,7 @@ public class AskRateDialog extends Dialog {
         setDefaultListener();
     }
 
-    private void init(){
+    private void init() {
 
         this.instance = this;
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -79,19 +79,20 @@ public class AskRateDialog extends Dialog {
         this.setCancelable(true);
 
         //Set dialog size
-        getWindow().setLayout((int)(config.getParentWidth() * PERCENTAGE_WIDH), (int)(config.getParentHeight() * PERCENTAGE_HEIGHT));
+        getWindow().setLayout((int) (config.getParentWidth() * PERCENTAGE_WIDH), (int) (config.getParentHeight() * PERCENTAGE_HEIGHT));
 
         findViews();
         setColor();
         setDinamicSize();
         prepareListeners();
+        setTypeface();
         setStarLogic();
     }
 
     /**
      * Find views.
      */
-    public void findViews(){
+    public void findViews() {
         noRateText = (TextView) findViewById(R.id.askrate_norate_text);
         rateText = (TextView) findViewById(R.id.askrate_rate_text);
         remindLaterText = (TextView) findViewById(R.id.askrate_remindLater_text);
@@ -118,7 +119,7 @@ public class AskRateDialog extends Dialog {
     /**
      * Set color.
      */
-    public void setColor(){
+    public void setColor() {
         LinearLayout layout = (LinearLayout) findViewById(R.id.askrate_mainLayout);
         layout.setBackgroundColor(config.getDialogMainColor());
 
@@ -140,7 +141,7 @@ public class AskRateDialog extends Dialog {
     /**
      * Set default listener.
      */
-    public void setDefaultListener(){
+    public void setDefaultListener() {
         onRemindLaterListener = new OnRemindLaterListener() {
             @Override
             public void onRemindLater(Dialog dialog) {
@@ -164,14 +165,27 @@ public class AskRateDialog extends Dialog {
     }
 
     /**
+     * Set typeface
+     */
+    public void setTypeface() {
+
+        if (config.isHasTypeface() && config.getTypeface() != null) {
+            this.titleText.setTypeface(config.getTypeface());
+            this.noRateText.setTypeface(config.getTypeface());
+            this.rateText.setTypeface(config.getTypeface());
+            this.remindLaterText.setTypeface(config.getTypeface());
+        }
+    }
+
+    /**
      * Set star logic.
      */
-    public void setStarLogic(){
+    public void setStarLogic() {
 
         star_1_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                countStart=1;
+                countStart = 1;
                 printStars();
             }
         });
@@ -179,7 +193,7 @@ public class AskRateDialog extends Dialog {
         star_2_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                countStart=2;
+                countStart = 2;
                 printStars();
             }
         });
@@ -187,7 +201,7 @@ public class AskRateDialog extends Dialog {
         star_3_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                countStart=3;
+                countStart = 3;
                 printStars();
             }
         });
@@ -195,7 +209,7 @@ public class AskRateDialog extends Dialog {
         star_4_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                countStart=4;
+                countStart = 4;
                 printStars();
             }
         });
@@ -203,7 +217,7 @@ public class AskRateDialog extends Dialog {
         star_5_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                countStart=5;
+                countStart = 5;
                 printStars();
             }
         });
@@ -212,7 +226,7 @@ public class AskRateDialog extends Dialog {
     /**
      * Prepare listeners.
      */
-    public void prepareListeners(){
+    public void prepareListeners() {
 
         this.noRateButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -261,9 +275,9 @@ public class AskRateDialog extends Dialog {
             @Override
             public void onClick(View v) {
                 if (countStart > 0)
-                    onRateListener.onRate(instance,countStart);
+                    onRateListener.onRate(instance, countStart);
                 else
-                    Utils_Dialog.centerCustomiczeToastMessage(config.getDialogTextColor(),config.getDialogMainColor(),context.getString(R.string.askrate_messsage),context, Utils_Dialog.DURATION_LONG);
+                    Utils_Dialog.centerCustomiczeToastMessage(config.getDialogTextColor(), config.getDialogMainColor(), context.getString(R.string.askrate_messsage), context, Utils_Dialog.DURATION_LONG);
             }
         });
 
@@ -296,7 +310,7 @@ public class AskRateDialog extends Dialog {
     /**
      * Print stars.
      */
-    public void printStars(){
+    public void printStars() {
 
         if (countStart > 4)
             star_5_image.setImageResource(R.drawable.star_1_selected);
@@ -327,7 +341,7 @@ public class AskRateDialog extends Dialog {
     /**
      * Set dinamic size.
      */
-    public void setDinamicSize(){
+    public void setDinamicSize() {
 
         noRateText.setTextSize(Utils_Dimen.pixelsToSp(context, config.getParentHeight() * PERCENTAGE_BUTTONTEXSIZE));
         remindLaterText.setTextSize(Utils_Dimen.pixelsToSp(context, config.getParentHeight() * PERCENTAGE_BUTTONTEXSIZE));
@@ -365,7 +379,7 @@ public class AskRateDialog extends Dialog {
     /**
      * The interface On remind later listener.
      */
-    public interface OnRemindLaterListener{
+    public interface OnRemindLaterListener {
         /**
          * On remind later.
          *
@@ -377,7 +391,7 @@ public class AskRateDialog extends Dialog {
     /**
      * The interface On no rate listener.
      */
-    public interface OnNoRateListener{
+    public interface OnNoRateListener {
         /**
          * On no rate.
          *
@@ -389,7 +403,7 @@ public class AskRateDialog extends Dialog {
     /**
      * The interface On rate listener.
      */
-    public interface OnRateListener{
+    public interface OnRateListener {
         /**
          * On rate.
          *
