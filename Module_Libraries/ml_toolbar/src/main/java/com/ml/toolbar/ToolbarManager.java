@@ -19,13 +19,6 @@ import com.ml.utils.utils.Utils_Toolbar;
 
 import static com.ml.toolbar.ToolbarGenericException.TOOLBAR_EXCEPTION_NOTCREATED;
 
-/**
- * <p> Class ToolbarManager </p>
- * Control and change toolbar styles and events
- *
- * @author jcaceres
- * @version 1.0.0
- */
 public class ToolbarManager {
 
     private Context context;
@@ -44,14 +37,6 @@ public class ToolbarManager {
     private ToolbarListener listener = null;
     private View parentView;
 
-    /**
-     * Instantiates a new ToolbarManager.
-     *
-     * @param context       the context
-     * @param parentView    the parent view
-     * @param toolbarConfig the toolbar config
-     * @param listener      the listener
-     */
     public ToolbarManager(Context context, View parentView, ToolbarConfig toolbarConfig, ToolbarListener listener) {
         this.context = context;
         this.parentView = parentView;
@@ -60,24 +45,10 @@ public class ToolbarManager {
         prepareToolbar();
     }
 
-    /**
-     * Init.
-     *
-     * @param context       the context
-     * @param parentView    the parent view
-     * @param toolbarConfig the toolbar config
-     * @param listener      the listener
-     */
-    public static void init(Context context, View parentView, ToolbarConfig toolbarConfig, ToolbarListener listener){
-        instance = new ToolbarManager(context,parentView,toolbarConfig,listener);
+    public static void init(Context context, View parentView, ToolbarConfig toolbarConfig, ToolbarListener listener) {
+        instance = new ToolbarManager(context, parentView, toolbarConfig, listener);
     }
 
-    /**
-     * Gets instance.
-     *
-     * @return the instance
-     * @throws ToolbarGenericException the toolbar generic exception
-     */
     public static ToolbarManager getInstance() throws ToolbarGenericException {
 
         if (instance == null)
@@ -86,7 +57,7 @@ public class ToolbarManager {
         return instance;
     }
 
-    private void prepareToolbar(){
+    private void prepareToolbar() {
 
         this.toolbar = (Toolbar) parentView.findViewById(toolbarConfig.getToolbarId());
         this.titleTexview = (TextView) toolbar.findViewById(toolbarConfig.getToolbatTitleId());
@@ -111,8 +82,10 @@ public class ToolbarManager {
             });
         }
 
-        this.mainIcon = new MainIcon_MaterialMenu();
-        this.mainIcon.create((Activity)context, toolbarConfig.getToolbarId());
+        if (toolbarConfig.hasMainIcon()) {
+            this.mainIcon = new MainIcon_MaterialMenu();
+            this.mainIcon.create((Activity) context, toolbarConfig.getToolbarId());
+        }
 
         this.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,11 +95,6 @@ public class ToolbarManager {
         });
     }
 
-    /**
-     * Change toolbar style.
-     *
-     * @param info the info
-     */
     public void changeToolbar(ToolbarInfo info) {
         changeToolbarGeneral(info.getImageFirstIcon(), info.isFirstIcon(), info.getImageSecondIcon(), info.isSecondIcon(), info.getTitle());
         if (info.isMainIcon()) {
@@ -136,9 +104,11 @@ public class ToolbarManager {
 
     private void changeToolbarMainIcon(int mainAction, int color, boolean isMainButton) {
 
-        this.mainAction = mainAction;
-        this.mainIcon.animateState(mainAction);
-        this.mainIcon.setColor(isMainButton,color);
+        if (toolbarConfig.hasMainIcon()) {
+            this.mainAction = mainAction;
+            this.mainIcon.animateState(mainAction);
+            this.mainIcon.setColor(isMainButton, color);
+        }
     }
 
     private void changeToolbarGeneral(int imageFirstIcon, boolean isFirstIcon, int imageSecondIcon, boolean isSecondIcon, String title) {
@@ -174,63 +144,36 @@ public class ToolbarManager {
         }
     }
 
-    /**
-     * Gets main icon action.
-     *
-     * @return the main action
-     */
     public int getMainAction() {
         return mainAction;
     }
 
-    /**
-     * Sets main icon action.
-     *
-     * @param mainAction the main action
-     */
     public void setMainAction(int mainAction) {
         this.mainAction = mainAction;
     }
 
-    /**
-     * Set mainIcon state.
-     *
-     * @param state the state
-     */
-    public void setMainIconState(int state){
-        mainIcon.setState(state);
+    public void setMainIconState(int state) {
+        if (mainIcon != null)
+            mainIcon.setState(state);
     }
 
-    public void setSaveActionIconState(){
-        mainIcon.setState(mainAction);
+    public void setSaveActionIconState() {
+        if (mainIcon != null)
+            mainIcon.setState(mainAction);
     }
 
-
-    /**
-     * Set mainIcon slide offset.
-     *
-     * @param isMenuOpen the is menu open
-     * @param offset     the offset
-     */
-    public void setMainIconSlide(boolean isMenuOpen, float offset){
-        mainIcon.onSlide(isMenuOpen,offset,mainAction);
+    public void setMainIconSlide(boolean isMenuOpen, float offset) {
+        if (mainIcon != null)
+            mainIcon.onSlide(isMenuOpen, offset, mainAction);
     }
 
-    /**
-     * Load mainIcon.
-     *
-     * @param savedInstanceState the saved instance state
-     */
-    public void loadStateMainIcon(Bundle savedInstanceState){
-        mainIcon.loadState(savedInstanceState);
+    public void loadStateMainIcon(Bundle savedInstanceState) {
+        if (mainIcon != null)
+            mainIcon.loadState(savedInstanceState);
     }
 
-    /**
-     * Save state main icon.
-     *
-     * @param savedInstanceState the saved instance state
-     */
-    public void saveStateMainIcon(Bundle savedInstanceState){
-        mainIcon.saveState(savedInstanceState);
+    public void saveStateMainIcon(Bundle savedInstanceState) {
+        if (mainIcon != null)
+            mainIcon.saveState(savedInstanceState);
     }
 }

@@ -1,3 +1,4 @@
 1.0.0 - Initial version
 1.1.0 - Support the mainicon transition when the side menu is opened, when using the ACCEPT or CANCEL option
 1.1.1 - Quit stupid toast when click toolbar title
+1.2.0 - Better control for main icon
