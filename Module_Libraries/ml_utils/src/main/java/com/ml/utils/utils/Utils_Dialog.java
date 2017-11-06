@@ -48,6 +48,7 @@ public class Utils_Dialog {
         if (text != null) {
             text.setGravity(Gravity.CENTER);
             text.setTextColor(colorText);
+            text.setBackgroundColor(colorBackground);
         }
         toast.show();
     }
