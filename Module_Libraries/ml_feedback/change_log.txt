@@ -6,3 +6,4 @@
 1.2.0 - Added Typeface configuration for all texts
 1.2.1 - Added english translation
 1.2.2 - Update translation
+1.2.3 - Update manifest

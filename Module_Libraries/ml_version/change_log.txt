@@ -2,3 +2,4 @@
 1.0.1 - Fix error, ForceDialog not reopen
 1.1.0 - Added Typeface configuration for all texts
 1.1.1 - Added english translation
+1.1.2 - Update manifest

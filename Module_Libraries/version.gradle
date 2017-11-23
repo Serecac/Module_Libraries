@@ -1,9 +1,6 @@
 allprojects {
     ext {
 
-        /**************************************************************/
-        /***********************      SUZO      ***********************/
-        /**************************************************************/
         app_versionMajor = 0
         app_versionMinor = 1
         app_versionPatch = 0
@@ -15,7 +12,7 @@ allprojects {
         /*************************************************************************/
         ml_architecture_versionMajor = 1
         ml_architecture_versionMinor = 0
-        ml_architecture_versionPatch = 1
+        ml_architecture_versionPatch = 2
         ml_architecture_nameApk = "ML_Architecture"
         ml_architecture_versionName = "${ml_architecture_versionMajor}.${ml_architecture_versionMinor}.${ml_architecture_versionPatch}"
 
@@ -24,7 +21,7 @@ allprojects {
         /*************************************************************************/
         ml_comunication_versionMajor = 1
         ml_comunication_versionMinor = 1
-        ml_comunication_versionPatch = 0
+        ml_comunication_versionPatch = 1
         ml_comunication_nameApk = "ML_Comunication"
         ml_comunication_versionName = "${ml_comunication_versionMajor}.${ml_comunication_versionMinor}.${ml_comunication_versionPatch}"
 
@@ -33,7 +30,7 @@ allprojects {
         /*********************************************************************/
         ml_feedback_versionMajor = 1
         ml_feedback_versionMinor = 2
-        ml_feedback_versionPatch = 2
+        ml_feedback_versionPatch = 3
         ml_feedback_nameApk = "ML_Feedback"
         ml_feedback_versionName = "${ml_feedback_versionMajor}.${ml_feedback_versionMinor}.${ml_feedback_versionPatch}"
 
@@ -42,7 +39,7 @@ allprojects {
         /******************************************************************/
         ml_fonts_versionMajor = 1
         ml_fonts_versionMinor = 2
-        ml_fonts_versionPatch = 0
+        ml_fonts_versionPatch = 1
         ml_fonts_nameApk = "ML_Fonts"
         ml_fonts_versionName = "${ml_fonts_versionMajor}.${ml_fonts_versionMinor}.${ml_fonts_versionPatch}"
 
@@ -51,7 +48,7 @@ allprojects {
         /*****************************************************************/
         ml_login_versionMajor = 1
         ml_login_versionMinor = 1
-        ml_login_versionPatch = 0
+        ml_login_versionPatch = 1
         ml_login_nameApk = "ML_Login"
         ml_login_versionName = "${ml_login_versionMajor}.${ml_login_versionMinor}.${ml_login_versionPatch}"
 
@@ -60,7 +57,7 @@ allprojects {
         /*****************************************************************/
         ml_logs_versionMajor = 1
         ml_logs_versionMinor = 0
-        ml_logs_versionPatch = 1
+        ml_logs_versionPatch = 2
         ml_logs_nameApk = "ML_Logs"
         ml_logs_versionName = "${ml_logs_versionMajor}.${ml_logs_versionMinor}.${ml_logs_versionPatch}"
 
@@ -69,7 +66,7 @@ allprojects {
         /*****************************************************************/
         ml_maps_versionMajor = 1
         ml_maps_versionMinor = 0
-        ml_maps_versionPatch = 0
+        ml_maps_versionPatch = 1
         ml_maps_nameApk = "ML_Maps"
         ml_maps_versionName = "${ml_maps_versionMajor}.${ml_maps_versionMinor}.${ml_maps_versionPatch}"
 
@@ -78,7 +75,7 @@ allprojects {
         /*****************************************************************/
         ml_menu_versionMajor = 1
         ml_menu_versionMinor = 0
-        ml_menu_versionPatch = 1
+        ml_menu_versionPatch = 2
         ml_menu_nameApk = "ML_Menu"
         ml_menu_versionName = "${ml_menu_versionMajor}.${ml_menu_versionMinor}.${ml_menu_versionPatch}"
 
@@ -87,7 +84,7 @@ allprojects {
         /***********************************************************************/
         ml_permission_versionMajor = 1
         ml_permission_versionMinor = 0
-        ml_permission_versionPatch = 0
+        ml_permission_versionPatch = 1
         ml_permission_nameApk = "ML_Permission"
         ml_permission_versionName = "${ml_permission_versionMajor}.${ml_permission_versionMinor}.${ml_permission_versionPatch}"
 
@@ -96,7 +93,7 @@ allprojects {
         /***********************************************************************/
         ml_preference_versionMajor = 1
         ml_preference_versionMinor = 0
-        ml_preference_versionPatch = 0
+        ml_preference_versionPatch = 1
         ml_preference_nameApk = "ML_Preferences"
         ml_preference_versionName = "${ml_preference_versionMajor}.${ml_preference_versionMinor}.${ml_preference_versionPatch}"
 
@@ -105,7 +102,7 @@ allprojects {
         /********************************************************************/
         ml_toolbar_versionMajor = 1
         ml_toolbar_versionMinor = 2
-        ml_toolbar_versionPatch = 0
+        ml_toolbar_versionPatch = 1
         ml_toolbar_nameApk = "ML_Toolbar"
         ml_toolbar_versionName = "${ml_toolbar_versionMajor}.${ml_toolbar_versionMinor}.${ml_toolbar_versionPatch}"
 
@@ -114,7 +111,7 @@ allprojects {
         /******************************************************************/
         ml_utils_versionMajor = 1
         ml_utils_versionMinor = 1
-        ml_utils_versionPatch = 4
+        ml_utils_versionPatch = 5
         ml_utils_nameApk = "ML_Utils"
         ml_utils_versionName = "${ml_utils_versionMajor}.${ml_utils_versionMinor}.${ml_utils_versionPatch}"
 
@@ -123,7 +120,7 @@ allprojects {
         /********************************************************************/
         ml_version_versionMajor = 1
         ml_version_versionMinor = 1
-        ml_version_versionPatch = 1
+        ml_version_versionPatch = 2
         ml_version_nameApk = "ML_Version"
         ml_version_versionName = "${ml_version_versionMajor}.${ml_version_versionMinor}.${ml_version_versionPatch}"
 
@@ -132,7 +129,7 @@ allprojects {
         /********************************************************************/
         ml_widgets_versionMajor = 1
         ml_widgets_versionMinor = 0
-        ml_widgets_versionPatch = 0
+        ml_widgets_versionPatch = 1
         ml_widgets_nameApk = "ML_Widgets"
         ml_widgets_versionName = "${ml_widgets_versionMajor}.${ml_widgets_versionMinor}.${ml_widgets_versionPatch}"
     }
