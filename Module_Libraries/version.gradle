@@ -33,7 +33,7 @@ allprojects {
         /*********************************************************************/
         ml_feedback_versionMajor = 1
         ml_feedback_versionMinor = 2
-        ml_feedback_versionPatch = 0
+        ml_feedback_versionPatch = 2
         ml_feedback_nameApk = "ML_Feedback"
         ml_feedback_versionName = "${ml_feedback_versionMajor}.${ml_feedback_versionMinor}.${ml_feedback_versionPatch}"
 
@@ -123,7 +123,7 @@ allprojects {
         /********************************************************************/
         ml_version_versionMajor = 1
         ml_version_versionMinor = 1
-        ml_version_versionPatch = 0
+        ml_version_versionPatch = 1
         ml_version_nameApk = "ML_Version"
         ml_version_versionName = "${ml_version_versionMajor}.${ml_version_versionMinor}.${ml_version_versionPatch}"
 

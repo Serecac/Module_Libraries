@@ -1,17 +1,17 @@
 <resources>
     <string name="app_name">ML_Feedback</string>
 
-    <string name="feedback_thanks">Muchas gracias por su valoración</string>
+    <string name="feedback_thanks">Thank you very much for your assessment</string>
 
-    <string name="askrate_title">Valore su experiencia</string>
-    <string name="askrate_remindlater">Más adelante</string>
-    <string name="askrate_norate">No, gracias</string>
-    <string name="askrate_rate">Valorar ahora</string>
-    <string name="askrate_messsage">Por favor, indique su valoración</string>
+    <string name="askrate_title">Thank you for your rating</string>
+    <string name="askrate_remindlater">Later</string>
+    <string name="askrate_norate">No thanks</string>
+    <string name="askrate_rate">Rate now</string>
+    <string name="askrate_messsage">Please, indicate your rating</string>
 
-    <string name="badrate_title">Ayúdenos a mejorar</string>
-    <string name="badrate_nocomment">No, gracias</string>
-    <string name="badrate_sendcomment">Enviar sugerencia</string>
-    <string name="badrate_messsage">La sugerencia esta vacía\nDeseamos conocer su opinion</string>
+    <string name="badrate_title">Help us improve</string>
+    <string name="badrate_nocomment">No thanks</string>
+    <string name="badrate_sendcomment">Send suggestion</string>
+    <string name="badrate_messsage">The suggestion is empty\nWe want to know your opinion</string>
 
 </resources>

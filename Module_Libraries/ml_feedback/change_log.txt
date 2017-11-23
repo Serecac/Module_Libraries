@@ -4,3 +4,5 @@
 1.1.0 - Return startCount on badfeedback
 1.1.1 - Add flag when open market (fix error when call intent outside activity without NEW_TASK flag)
 1.2.0 - Added Typeface configuration for all texts
+1.2.1 - Added english translation
+1.2.2 - Update translation

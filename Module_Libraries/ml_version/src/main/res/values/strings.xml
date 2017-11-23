@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">ML_Version</string>
-    <string name="title_notification">Nueva versión disponible</string>
+    <string name="title_notification">New version available</string>
 
-    <string name="update_update">Actualizar</string>
-    <string name="update_noUpdate">No, gracias</string>
+    <string name="update_update">Update</string>
+    <string name="update_noUpdate">No thanks</string>
 
-    <string name="forceupdate_update">Actualizar</string>
+    <string name="forceupdate_update">Update</string>
 </resources>
