@@ -7,3 +7,4 @@
 1.2.1 - Added english translation
 1.2.2 - Update translation
 1.2.3 - Update manifest
+1.3.0 - Added new listener to count stars, also on positive ratings

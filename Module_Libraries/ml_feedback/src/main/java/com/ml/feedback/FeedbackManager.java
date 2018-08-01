@@ -27,6 +27,7 @@ public class FeedbackManager {
     private BadRateDialog badRateDialog = null;
 
     private OnNegativeRateReceive onNegativeRateReceive;
+    private OnRateReceive onRateReceive;
 
     public FeedbackManager(FeedbackConfig config, Context context){
         this.config = config;
@@ -34,6 +35,12 @@ public class FeedbackManager {
         this.onNegativeRateReceive = new OnNegativeRateReceive() {
             @Override
             public void onNegativeRateReceive(String string, int stars) {
+
+            }
+        };
+        this.onRateReceive = new OnRateReceive() {
+            @Override
+            public void onRateReceive(int stars) {
 
             }
         };
@@ -96,6 +103,8 @@ public class FeedbackManager {
             askRateDialog.setOnRateListener(new AskRateDialog.OnRateListener() {
                 @Override
                 public void onRate(Dialog dialog, int countStars) {
+
+                    onRateReceive.onRateReceive(countStars);
                     if (countStars >= MIN_ACCEPTABLE_STARS)
                         launchMarket(logcatWritter);
                     else
@@ -183,12 +192,21 @@ public class FeedbackManager {
         }
     }
 
-    public void setOnNegativeRateReceiveLister(OnNegativeRateReceive onNegativeRateReceiveLister){
-        this.onNegativeRateReceive = onNegativeRateReceiveLister;
+    public void setOnNegativeRateReceiveLister(OnNegativeRateReceive onNegativeRateReceive){
+        this.onNegativeRateReceive = onNegativeRateReceive;
+    }
+
+    public void setOnRateReceiveLister(OnRateReceive onRateReceive){
+        this.onRateReceive = onRateReceive;
     }
 
     public interface OnNegativeRateReceive{
 
         void onNegativeRateReceive(String string, int stars);
+    }
+
+    public interface OnRateReceive{
+
+        void onRateReceive(int stars);
     }
 }
