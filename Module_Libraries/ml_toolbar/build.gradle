@@ -37,7 +37,7 @@ android {
     }
 
     libraryVariants.all { variant ->
-        variant.outputs.each { output ->
+        variant.outputs.all { output ->
 
             def outputFile = output.outputFile
             if (outputFile != null && outputFile.name.endsWith('.aar')) {
@@ -49,7 +49,7 @@ android {
                     fileName = "${archivesBaseName}_debug.aar"
                 }
 
-                output.outputFile = new File(outputFile.parent, fileName)
+                outputFileName =  "${fileName}"
             }
         }
     }

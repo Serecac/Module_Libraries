@@ -60,31 +60,6 @@ android {
             buildConfigField "String", "GATEWAY", '"network"'
         }
     }
-
-    applicationVariants.all { variant ->
-        variant.outputs.each { output ->
-
-            def outputFile = output.outputFile
-            if (outputFile != null && outputFile.name.endsWith('.apk')) {
-
-                String fileName = "${rootProject.ext.app_nameApk}_${versionName}"
-                if (variant.name.toLowerCase().contains(android.buildTypes.debug.name)) {
-                    fileName = "${rootProject.ext.app_nameApk}_debug"
-                }
-
-                if (variant.productFlavors[0].name.equals("develop")) {
-                    fileName = "${fileName}-dev"
-                }
-
-                if (variant.productFlavors[1].name.equals("local")) {
-                    fileName = "${fileName}-local"
-                }
-
-                fileName = "${fileName}.apk"
-                output.outputFile = new File(outputFile.parent, fileName)
-            }
-        }
-    }
 }
 
 repositories {
