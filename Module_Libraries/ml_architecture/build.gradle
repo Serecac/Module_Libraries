@@ -61,19 +61,19 @@ configurations {
 }
 
 dependencies {
-    compile project(':ml_menu')
-    compile project(':ml_toolbar')
+    implementation project(':ml_menu')
+    implementation project(':ml_toolbar')
 
-    compile rootProject.ext.ml_architecture_androidDependencies.androidSupportv7
-    compile rootProject.ext.ml_architecture_androidDependencies.androidSupportv4
-    compile rootProject.ext.ml_architecture_androidDependencies.androidSupportv13
-    compile rootProject.ext.ml_architecture_androidDependencies.design
+    implementation rootProject.ext.ml_architecture_androidDependencies.androidSupportv7
+    implementation rootProject.ext.ml_architecture_androidDependencies.androidSupportv4
+    implementation rootProject.ext.ml_architecture_androidDependencies.androidSupportv13
+    implementation rootProject.ext.ml_architecture_androidDependencies.design
 
-    compile rootProject.ext.ml_architecture_dependencies.threaddecoratedview
-    compile rootProject.ext.ml_architecture_dependencies.threaddecoratedviewcompiler
-    compile rootProject.ext.ml_architecture_dependencies.loggingInterceptor
-    compile rootProject.ext.ml_architecture_dependencies.dagger
-    compile rootProject.ext.ml_architecture_dependencies.daggerCompiler
+    implementation rootProject.ext.ml_architecture_dependencies.threaddecoratedview
+    annotationProcessor rootProject.ext.ml_architecture_dependencies.threaddecoratedviewcompiler
+    implementation rootProject.ext.ml_architecture_dependencies.loggingInterceptor
+    implementation rootProject.ext.ml_architecture_dependencies.dagger
+    annotationProcessor rootProject.ext.ml_architecture_dependencies.daggerCompiler
 
-    compile rootProject.ext.ml_architecture_testDependencies.junit
+    androidTestImplementation rootProject.ext.ml_architecture_testDependencies.junit
 }
