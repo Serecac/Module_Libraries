@@ -17,24 +17,10 @@ import com.ml.toolbar.main_icon.MainIcon;
 import static com.ml.architecture.ui.toolbarmenu.ToolbarMenu_ArquitectureException.TOOLBARMENU_EXCEPTION_CHANGEFRAGMENT;
 import static com.ml.architecture.ui.toolbarmenu.ToolbarMenu_ArquitectureException.TOOLBARMENU_EXCEPTION_FAILLAYOUT;
 
-/**
- * <p> Class ToolbarMenu_Activity </p>
- * Custom activity for ToolbarMenu arquitecture
- *
- * @author Javier Cáceres
- * @version 1.0.0
- */
 public abstract class ToolbarMenu_Activity extends AppCompatActivity {
 
     private ToolbarMenu_Config config;
-
-    /**
-     * The Childs.
-     */
     protected ToolBarMenu_Childs childs = null;
-    /**
-     * The Actual fragment id.
-     */
     protected int actualFragmentId = -1;
 
     @Override
@@ -61,14 +47,6 @@ public abstract class ToolbarMenu_Activity extends AppCompatActivity {
             changeFragment(config.getFirstFragmentId(), false, 0, 0);
     }
 
-    /**
-     * Change fragment.
-     *
-     * @param fragmentId the fragment id
-     * @param anim       the anim
-     * @param iniAnimID  the ini anim id
-     * @param outAnimID  the out anim id
-     */
     public void changeFragment(int fragmentId, boolean anim, int iniAnimID, int outAnimID) {
 
         try {
@@ -94,25 +72,48 @@ public abstract class ToolbarMenu_Activity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Block menu.
-     *
-     * @param mustBlock the must block
-     */
+    public void changeFragment(int fragmentId, boolean anim, int iniAnimID, int outAnimID, boolean saveParent) {
+
+        if (actualFragmentId != fragmentId) {
+            try {
+                Fragment fragment = childs.getOneFragment(fragmentId);
+                ToolbarInfo toolbar = childs.getOneToolbar(fragmentId);
+
+                if (fragment == null) {
+                    return;
+                }
+
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                if (anim) {
+                    ft.setCustomAnimations(iniAnimID, outAnimID);
+                }
+                ft.replace(config.getFragmentLayoutId(), fragment, config.getFragmentTag()).commit();
+
+                actualFragmentId = fragmentId;
+                if (config.isWantToolbar())
+                    ToolbarManager.getInstance().changeToolbar(toolbar);
+
+                if (saveParent)
+                    childs.getOneFragment(fragmentId).setParentId(actualFragmentId);
+
+            } catch (Exception exce) {
+                throw new ToolbarMenu_ArquitectureException(TOOLBARMENU_EXCEPTION_CHANGEFRAGMENT, exce);
+            }
+
+        } else {
+            childs.getOneFragment(actualFragmentId).onRefresh();
+        }
+    }
+
+
     protected void blockMenu(boolean mustBlock){
         MenuManager.getInstance().blockMenu(mustBlock);
     }
 
-    /**
-     * Open menu.
-     */
     protected void openMenu(){
         MenuManager.getInstance().openMenu();
     }
 
-    /**
-     * Close menu.
-     */
     protected void closeMenu(){
         MenuManager.getInstance().closeMenu();
     }
@@ -170,47 +171,18 @@ public abstract class ToolbarMenu_Activity extends AppCompatActivity {
         }
     };
 
-    /**
-     * Gets configuration.
-     *
-     * @return the configuration
-     */
     protected abstract ToolbarMenu_Config getConfiguration();
 
-    /**
-     * Get menu items menu generic item [ ].
-     *
-     * @return the menu generic item [ ]
-     */
     protected abstract MenuGenericItem[] getMenuItems();
 
-    /**
-     * On menu item selected.
-     *
-     * @param id the id
-     */
     protected abstract void onMenuItemSelected(int id);
 
-    /**
-     * Create childs.
-     */
     protected abstract void createChilds();
 
-    /**
-     * On click main bottom.
-     *
-     * @param action the action
-     */
     protected abstract void onClickMainBottom(int action);
 
-    /**
-     * On click first button.
-     */
     protected abstract void onClickFirstButton();
 
-    /**
-     * On click second button.
-     */
     protected abstract void onClickSecondButton();
 
     @Override

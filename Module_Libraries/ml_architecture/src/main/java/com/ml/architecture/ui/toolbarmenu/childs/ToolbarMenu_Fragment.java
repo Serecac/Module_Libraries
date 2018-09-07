@@ -1,5 +1,6 @@
 package com.ml.architecture.ui.toolbarmenu.childs;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,48 +9,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ml.architecture.ui.toolbarmenu.ToolbarMenu_Activity;
 import com.ml.architecture.ui.toolbarmenu.ToolbarMenu_ArquitectureException;
 
 import static com.ml.architecture.ui.toolbarmenu.ToolbarMenu_ArquitectureException.TOOLBARMENU_EXCEPTION_BADARGUMENTS;
 
-/**
- * <p> Class ToolbarMenu_Fragment </p>
- * Custom fragment for ToolbarMenu arquitecture
- *
- * @author Javier Cáceres
- * @version 1.0.0
- */
 public abstract class ToolbarMenu_Fragment extends Fragment {
 
-    /**
-     * The constant KEY_BASEFRAGMENT_ID.
-     */
     public static final String KEY_BASEFRAGMENT_ID = "basefragment_id";
-    /**
-     * The constant KEY_BASEFRAGMENT_PARENTID.
-     */
     public static final String KEY_BASEFRAGMENT_PARENTID = "basefragment_parentId";
-    /**
-     * The constant KEY_BASEFRAGMENT_FRAGMENTNAME.
-     */
     public static final String KEY_BASEFRAGMENT_FRAGMENTNAME = "basefragment_name";
 
     private int fragmentId = -1;
     private int parentId = -1;
     private String fragmentName = "";
 
-    /**
-     * The Root view.
-     */
     protected View rootView;
-    /**
-     * The Father activity.
-     */
-    protected Context fatherActivity;
+    protected ToolbarMenu_Activity fatherActivity;
+    protected Context fatherContext;
 
-    /**
-     * Instantiates a new ToolbarMenu_Fragment.
-     */
     public ToolbarMenu_Fragment() {
 
     }
@@ -60,19 +38,11 @@ public abstract class ToolbarMenu_Fragment extends Fragment {
         return createCustomView(inflater, container, savedInstanceState, null);
     }
 
-    /**
-     * Create custom view view.
-     *
-     * @param inflater           the inflater
-     * @param container          the container
-     * @param savedInstanceState the saved instance state
-     * @param childView          the child view
-     * @return the view
-     */
     protected View createCustomView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState, View childView) {
 
         rootView = childView;
-        fatherActivity = getActivity();
+        fatherActivity = (ToolbarMenu_Activity) getActivity();
+        fatherContext = fatherActivity;
 
         return childView;  //Returns only what the child will pass
     }
