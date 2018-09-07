@@ -1,3 +1,4 @@
 1.0.0 - Initial version
 1.0.1 - Support the mainicon transition when the side menu is opened, when using the ACCEPT or CANCEL option
 1.0.2 - Update manifest
+1.1.0 - Improved context management and new function for fragments change
