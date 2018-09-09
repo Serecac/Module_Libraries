@@ -1,5 +1,6 @@
 package com.ml.version;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -27,13 +28,6 @@ import static com.ml.version.VersionConfig.TYPE_NOTIFICATION;
 import static com.ml.version.VersionConfig.TYPE_TOAST;
 import static com.ml.version.VersionGenericException.VERSION_EXCEPTION_NOTCREATED;
 
-/**
- * <p> Class VersionManager </p>
- * Control updates and blocks by version
- *
- * @author Javier Cáceres
- * @version 1.0.0
- */
 public class VersionManager {
 
     private final String PREFERENCE_ATTEMPTS_ASKUPDATE = "version_attempts_askupdate";
@@ -45,21 +39,10 @@ public class VersionManager {
     private UpdateDialog updateDialog = null;
     private ForceUpdateDialog forceUpdateDialog = null;
 
-    /**
-     * Instantiates a new VersionManager.
-     *
-     * @param config the config
-     */
     public VersionManager(VersionConfig config) {
         this.config = config;
     }
 
-    /**
-     * Init.
-     *
-     * @param config the config
-     * @throws VersionBadConfigException the VERSION bad config exception
-     */
     public static void init(VersionConfig config) throws VersionBadConfigException {
 
         if (checkConfig(config))
@@ -68,11 +51,6 @@ public class VersionManager {
             throw new VersionBadConfigException(VERSION_EXCEPTION_BADCONFIG);
     }
 
-    /**
-     * Get instance VersionManager.
-     *
-     * @return the VersionManager
-     */
     public static VersionManager getInstance() {
 
         if (instance == null)
@@ -81,19 +59,10 @@ public class VersionManager {
         return instance;
     }
 
-    /**
-     * Verify that the installed version matches with specific version
-     *
-     * @param preferenceManager the preference manager
-     * @param logcatWritter     the logcat writter
-     * @param context           the context
-     * @param version           the version
-     * @param typeUpdate        the type update
-     */
-    public void checkVersion(PreferenceManager preferenceManager, LogcatWritter logcatWritter, Context context, int version, int typeUpdate) {
+    public void checkVersion(PreferenceManager preferenceManager, LogcatWritter logcatWritter, Activity activity, int version, int typeUpdate) {
 
         try {
-            PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            PackageInfo pInfo = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0);
             if (pInfo.versionCode < version) {
 
                 int attempts = preferenceManager.getInt(PREFERENCE_ATTEMPTS_ASKUPDATE);
@@ -103,7 +72,7 @@ public class VersionManager {
 
                 attempts--;
                 if (attempts == 0 || typeUpdate == TYPE_FORCEDIALOG) {
-                    showNeedUpdating(context, logcatWritter, typeUpdate);
+                    showNeedUpdating(activity, logcatWritter, typeUpdate);
                     attempts = this.config.getAttempToAskForUpdate(); //Restart attemps
                 }
 
@@ -117,21 +86,13 @@ public class VersionManager {
         }
     }
 
-    /**
-     * Verify that the installed version matches with online version.
-     *
-     * @param preferenceManager the preference manager
-     * @param logcatWritter     the logcat writter
-     * @param context           the context
-     * @param typeUpdate        the type update
-     */
-    public void checkWithOnlineVersion(final PreferenceManager preferenceManager, final LogcatWritter logcatWritter, final Context context, final int typeUpdate){
+    public void checkWithOnlineVersion(final PreferenceManager preferenceManager, final LogcatWritter logcatWritter, final Activity activity, final int typeUpdate){
 
         VersionOnlineListener listener = new VersionOnlineListener() {
             @Override
             public void onOnlineVersionReady(String versionName, int versionCode) {
                 try {
-                    PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                    PackageInfo pInfo = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0);
                     if (pInfo.versionCode < versionCode) {
 
                         int attempts = preferenceManager.getInt(PREFERENCE_ATTEMPTS_ASKUPDATE);
@@ -141,7 +102,7 @@ public class VersionManager {
 
                         attempts--;
                         if (attempts == 0 || typeUpdate == TYPE_FORCEDIALOG) {
-                            showNeedUpdating(context, logcatWritter, typeUpdate);
+                            showNeedUpdating(activity, logcatWritter, typeUpdate);
                             attempts = config.getAttempToAskForUpdate(); //Restart attemps
                         }
 
@@ -156,23 +117,23 @@ public class VersionManager {
             }
         };
 
-        new GetVersionAsyncTask(listener).execute(context.getPackageName());
+        new GetVersionAsyncTask(listener).execute(activity.getPackageName());
     }
 
-    private void showNeedUpdating(Context context, LogcatWritter logcatWritter, int typeUpdate) {
+    private void showNeedUpdating(Activity activity, LogcatWritter logcatWritter, int typeUpdate) {
 
         switch (typeUpdate) {
             case TYPE_NOTIFICATION:
-                showNotification(context);
+                showNotification(activity);
                 break;
             case TYPE_TOAST:
-                Utils_Dialog.centerCustomiczeToastMessage(config.getDialogTextColor(), config.getDialogMainColor(), config.getTextUpdate(), context, Utils_Dialog.DURATION_LONG);
+                Utils_Dialog.customSimpleToast(config.getDialogTextColor(), config.getDialogMainColor(), -1, config.getTextUpdate(), activity, Utils_Dialog.DURATION_LONG);
                 break;
             case TYPE_DIALOG:
-                showUpdateDialog(logcatWritter, context);
+                showUpdateDialog(logcatWritter, activity);
                 break;
             case TYPE_FORCEDIALOG:
-                showForceUpdateDialog(logcatWritter, context);
+                showForceUpdateDialog(logcatWritter, activity);
                 break;
         }
     }

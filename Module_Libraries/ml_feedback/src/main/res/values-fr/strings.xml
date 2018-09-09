@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ML_Feedback</string>
+
+    <string name="feedback_thanks">Merci beaucoup pour votre évaluation</string>
+
+    <string name="askrate_title">Merci pour votre évaluation</string>
+    <string name="askrate_remindlater">Plus tard</string>
+    <string name="askrate_norate">Non merci</string>
+    <string name="askrate_rate">Évaluez maintenant</string>
+    <string name="askrate_messsage">Merci d\'indiquer votre évaluation</string>
+
+    <string name="badrate_title">Aidez nous à améliorer</string>
+    <string name="badrate_nocomment">Non merci</string>
+    <string name="badrate_sendcomment">Envoyer une suggestion</string>
+    <string name="badrate_messsage">La suggestion est vide\nNous voulons connaître votre opinion</string>
+
+    <string name="simplerate_title">Merci pour votre évaluation</string>
+    <string name="simplerate_body">Si vous souhaitez poser une question, laissez une suggestion pour améliorer ou donnez-nous simplement votre soutien. Nous serons très reconnaissants de recevoir votre évaluation.</string>
+    <string name="simplerate_remindlater">Plus tard</string>
+    <string name="simplerate_norate">Non merci</string>
+    <string name="simplerate_rate">Évaluez maintenant</string>
+
+</resources>

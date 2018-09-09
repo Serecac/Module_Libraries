@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/simplerate_mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:weightSum="1"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/simplerate_title_body"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:gravity="center"
+        android:paddingStart="@dimen/simplerate_padding"
+        android:paddingLeft="@dimen/simplerate_padding">
+
+        <TextView
+            android:id="@+id/simplerate_title_text"
+            android:textAllCaps="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="@string/simplerate_title"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:padding="@dimen/simplerate_bodyRate"
+        android:gravity="center">
+        
+        <TextView
+            android:id="@+id/simplerate_body_text"
+            android:text="@string/simplerate_body"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/simplerate_line_topseparator"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.005"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.295"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/simplerate_padding"
+        android:paddingTop="@dimen/simplerate_padding"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:id="@+id/simplerate_remindLater_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:padding="@dimen/simplerate_padding"
+            android:layout_weight="0.3"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/simplerate_remindLater_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/simplerate_remindlater"
+                android:textAllCaps="true" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/simplerate_line_firstBottomSeparator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.003"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/simplerate_norate_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:padding="@dimen/simplerate_padding"
+            android:layout_weight="0.33"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/simplerate_norate_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/simplerate_norate"
+                android:textAllCaps="true" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/simplerate_line_secondBottomSeparator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.003"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/simplerate_rate_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:padding="@dimen/simplerate_padding"
+            android:layout_weight="0.33"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/simplerate_rate_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/simplerate_rate"
+                android:textAllCaps="true" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

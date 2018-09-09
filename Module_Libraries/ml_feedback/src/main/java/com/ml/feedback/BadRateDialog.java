@@ -1,5 +1,7 @@
 package com.ml.feedback;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.view.MotionEvent;
@@ -15,6 +17,7 @@ import com.ml.utils.utils.Utils_Dialog;
 import com.ml.utils.utils.Utils_Dimen;
 
 
+@SuppressWarnings({"FieldCanBeLocal", "WeakerAccess"})
 public class BadRateDialog extends Dialog {
 
     private final double PERCENTAGE_WIDH = 0.95;
@@ -40,18 +43,18 @@ public class BadRateDialog extends Dialog {
     private EditText messageText;
 
     private Dialog instance;
-    private Context context;
+    private Activity activity;
     private FeedbackConfig config;
 
-    public BadRateDialog(Context context, FeedbackConfig config) {
-        super(context);
+    public BadRateDialog(Activity activity, FeedbackConfig config) {
+        super(activity);
         this.config = config;
-        this.context = context;
+        this.activity = activity;
         init();
         setDefaultListener();
     }
 
-    private void init(){
+    private void init() {
 
         this.instance = this;
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -59,7 +62,7 @@ public class BadRateDialog extends Dialog {
         this.setCancelable(true);
 
         //Set dialog size
-        getWindow().setLayout((int)(config.getParentWidth() * PERCENTAGE_WIDH), (int)(config.getParentHeight() * PERCENTAGE_HEIGHT));
+        getWindow().setLayout((int) (config.getParentWidth() * PERCENTAGE_WIDH), (int) (config.getParentHeight() * PERCENTAGE_HEIGHT));
 
         findViews();
         setColor();
@@ -71,10 +74,7 @@ public class BadRateDialog extends Dialog {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
     }
 
-    /**
-     * Set default listener.
-     */
-    public void setDefaultListener(){
+    public void setDefaultListener() {
         onSendComment = new OnSendComment() {
 
             @Override
@@ -91,10 +91,7 @@ public class BadRateDialog extends Dialog {
         };
     }
 
-    /**
-     * Find views.
-     */
-    public void findViews(){
+    public void findViews() {
 
         mainLayout = (LinearLayout) findViewById(R.id.badrate_mainLayout);
 
@@ -109,10 +106,7 @@ public class BadRateDialog extends Dialog {
         messageText = (EditText) findViewById(R.id.badrate_body_text);
     }
 
-    /**
-     * Set color.
-     */
-    public void setColor(){
+    public void setColor() {
 
         this.mainLayout.setBackgroundColor(config.getDialogMainColor());
 
@@ -132,12 +126,9 @@ public class BadRateDialog extends Dialog {
         this.messageBody.setBackgroundColor(config.getDialogSecondColor());
     }
 
-    /**
-     * Set typeface
-     */
-    public void setTypeface(){
+    public void setTypeface() {
 
-        if (config.isHasTypeface() && config.getTypeface() != null){
+        if (config.isHasTypeface() && config.getTypeface() != null) {
             this.titleText.setTypeface(config.getTypeface());
             this.noCommentText.setTypeface(config.getTypeface());
             this.sendCommentText.setTypeface(config.getTypeface());
@@ -145,27 +136,22 @@ public class BadRateDialog extends Dialog {
         }
     }
 
-    /**
-     * Set dinamic size.
-     */
-    public void setDinamicSize(){
+    public void setDinamicSize() {
 
-        sendCommentText.setTextSize(Utils_Dimen.pixelsToSp(context, config.getParentHeight() * PERCENTAGE_BUTTONTEXSIZE));
-        noCommentText.setTextSize(Utils_Dimen.pixelsToSp(context, config.getParentHeight() * PERCENTAGE_BUTTONTEXSIZE));
-        titleText.setTextSize(Utils_Dimen.pixelsToSp(context, config.getParentHeight() * PERCENTAGE_TITLETEXSIZE));
+        sendCommentText.setTextSize(Utils_Dimen.pixelsToSp(activity, config.getParentHeight() * PERCENTAGE_BUTTONTEXSIZE));
+        noCommentText.setTextSize(Utils_Dimen.pixelsToSp(activity, config.getParentHeight() * PERCENTAGE_BUTTONTEXSIZE));
+        titleText.setTextSize(Utils_Dimen.pixelsToSp(activity, config.getParentHeight() * PERCENTAGE_TITLETEXSIZE));
 
         int padding = (int) (config.getParentWidth() * PERCENTAGE_PADDING_BODY);
-        messageBody.setPadding(padding,padding,padding,padding);
+        messageBody.setPadding(padding, padding, padding, padding);
 
         int padding_internal = (int) (config.getParentWidth() * PERCENTAGE_PADDING_BODY_INTERNAL);
-        messageText.setPadding(padding_internal,padding_internal,padding_internal,padding_internal);
-        messageText.setTextSize(Utils_Dimen.pixelsToSp(context, config.getParentHeight() * PERCENTAGE_BODYTEXSIZE));
+        messageText.setPadding(padding_internal, padding_internal, padding_internal, padding_internal);
+        messageText.setTextSize(Utils_Dimen.pixelsToSp(activity, config.getParentHeight() * PERCENTAGE_BODYTEXSIZE));
     }
 
-    /**
-     * Prepare listeners.
-     */
-    public void prepareListeners(){
+    @SuppressLint("ClickableViewAccessibility")
+    public void prepareListeners() {
 
         this.sendCommentText.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -192,11 +178,11 @@ public class BadRateDialog extends Dialog {
                 String comment = messageText.getText().toString();
                 if (!comment.equals("")) {
                     //Close Keyboard
-                    InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                    InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(messageText.getWindowToken(), 0);
                     onSendComment.onSendComment(instance, messageText.getText().toString());
                 } else
-                    Utils_Dialog.centerCustomiczeToastMessage(config.getDialogTextColor(),config.getDialogMainColor(),context.getString(R.string.badrate_messsage),context, Utils_Dialog.DURATION_LONG);
+                    Utils_Dialog.customSimpleToast(config.getDialogTextColor(), config.getDialogMainColor(), -1, activity.getString(R.string.badrate_messsage), activity, Utils_Dialog.DURATION_LONG);
 
             }
         });
@@ -223,35 +209,22 @@ public class BadRateDialog extends Dialog {
             @Override
             public void onClick(View v) {
                 //Close Keyboard
-                InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(messageText.getWindowToken(), 0);
                 onNoComment.onNoComment(instance);
             }
         });
     }
 
-    /**
-     * Sets on send comment listener.
-     *
-     * @param onSendComment the on send comment
-     */
     public void setOnSendCommentListener(BadRateDialog.OnSendComment onSendComment) {
         this.onSendComment = onSendComment;
     }
 
-    /**
-     * Sets on no comment listener.
-     *
-     * @param onNoComment the on no comment
-     */
     public void setOnNoCommentListener(BadRateDialog.OnNoComment onNoComment) {
         this.onNoComment = onNoComment;
     }
 
-    /**
-     * The interface On no comment.
-     */
-    public interface OnNoComment{
+    public interface OnNoComment {
         /**
          * On no comment.
          *
@@ -260,10 +233,7 @@ public class BadRateDialog extends Dialog {
         void onNoComment(Dialog dialog);
     }
 
-    /**
-     * The interface On send comment.
-     */
-    public interface OnSendComment{
+    public interface OnSendComment {
         /**
          * On send comment.
          *

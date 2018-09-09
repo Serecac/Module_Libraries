@@ -1,5 +1,7 @@
 package com.ml.feedback;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.view.MotionEvent;
@@ -12,14 +14,7 @@ import android.widget.TextView;
 import com.ml.utils.utils.Utils_Dialog;
 import com.ml.utils.utils.Utils_Dimen;
 
-/**
- * <p> Class AskRateDialog </p>
- * Dialog for getting feedback from users and good rates on Play Store
- *
- * @author Javier Cáceres
- * @version 1.0.0
- * @see BadRateDialog
- */
+@SuppressWarnings({"FieldCanBeLocal", "WeakerAccess"})
 public class AskRateDialog extends Dialog {
 
     private final double PERCENTAGE_WIDH = 0.95;
@@ -28,7 +23,7 @@ public class AskRateDialog extends Dialog {
     private final float PERCENTAGE_TITLETEXSIZE = 0.027f;
 
     private FeedbackConfig config;
-    private Context context;
+    private Activity activity;
     private OnRemindLaterListener onRemindLaterListener;
     private OnNoRateListener onNoRateListener;
     private OnRateListener onRateListener;
@@ -57,16 +52,10 @@ public class AskRateDialog extends Dialog {
     private Dialog instance;
     private int countStart = 0;
 
-    /**
-     * Instantiates a new Ask rate dialog.
-     *
-     * @param context the context
-     * @param config  the config
-     */
-    public AskRateDialog(Context context, FeedbackConfig config) {
-        super(context);
+    public AskRateDialog(Activity activity, FeedbackConfig config) {
+        super(activity);
         this.config = config;
-        this.context = context;
+        this.activity = activity;
         init();
         setDefaultListener();
     }
@@ -89,9 +78,6 @@ public class AskRateDialog extends Dialog {
         setStarLogic();
     }
 
-    /**
-     * Find views.
-     */
     public void findViews() {
         noRateText = (TextView) findViewById(R.id.askrate_norate_text);
         rateText = (TextView) findViewById(R.id.askrate_rate_text);
@@ -115,10 +101,6 @@ public class AskRateDialog extends Dialog {
         star_5_button = (LinearLayout) findViewById(R.id.askrate_fifthrate_button);
     }
 
-
-    /**
-     * Set color.
-     */
     public void setColor() {
         LinearLayout layout = (LinearLayout) findViewById(R.id.askrate_mainLayout);
         layout.setBackgroundColor(config.getDialogMainColor());
@@ -138,9 +120,6 @@ public class AskRateDialog extends Dialog {
         this.remindLaterText.setTextColor(config.getDialogTextColor());
     }
 
-    /**
-     * Set default listener.
-     */
     public void setDefaultListener() {
         onRemindLaterListener = new OnRemindLaterListener() {
             @Override
@@ -164,9 +143,6 @@ public class AskRateDialog extends Dialog {
         };
     }
 
-    /**
-     * Set typeface
-     */
     public void setTypeface() {
 
         if (config.isHasTypeface() && config.getTypeface() != null) {
@@ -177,9 +153,6 @@ public class AskRateDialog extends Dialog {
         }
     }
 
-    /**
-     * Set star logic.
-     */
     public void setStarLogic() {
 
         star_1_button.setOnClickListener(new View.OnClickListener() {
@@ -223,9 +196,7 @@ public class AskRateDialog extends Dialog {
         });
     }
 
-    /**
-     * Prepare listeners.
-     */
+    @SuppressLint("ClickableViewAccessibility")
     public void prepareListeners() {
 
         this.noRateButton.setOnTouchListener(new View.OnTouchListener() {
@@ -277,7 +248,7 @@ public class AskRateDialog extends Dialog {
                 if (countStart > 0)
                     onRateListener.onRate(instance, countStart);
                 else
-                    Utils_Dialog.centerCustomiczeToastMessage(config.getDialogTextColor(), config.getDialogMainColor(), context.getString(R.string.askrate_messsage), context, Utils_Dialog.DURATION_LONG);
+                    Utils_Dialog.customSimpleToast(config.getDialogTextColor(), config.getDialogMainColor(), -1, activity.getString(R.string.askrate_messsage), activity, Utils_Dialog.DURATION_LONG);
             }
         });
 
@@ -343,10 +314,10 @@ public class AskRateDialog extends Dialog {
      */
     public void setDinamicSize() {
 
-        noRateText.setTextSize(Utils_Dimen.pixelsToSp(context, config.getParentHeight() * PERCENTAGE_BUTTONTEXSIZE));
-        remindLaterText.setTextSize(Utils_Dimen.pixelsToSp(context, config.getParentHeight() * PERCENTAGE_BUTTONTEXSIZE));
-        rateText.setTextSize(Utils_Dimen.pixelsToSp(context, config.getParentHeight() * PERCENTAGE_BUTTONTEXSIZE));
-        titleText.setTextSize(Utils_Dimen.pixelsToSp(context, config.getParentHeight() * PERCENTAGE_TITLETEXSIZE));
+        noRateText.setTextSize(Utils_Dimen.pixelsToSp(activity, config.getParentHeight() * PERCENTAGE_BUTTONTEXSIZE));
+        remindLaterText.setTextSize(Utils_Dimen.pixelsToSp(activity, config.getParentHeight() * PERCENTAGE_BUTTONTEXSIZE));
+        rateText.setTextSize(Utils_Dimen.pixelsToSp(activity, config.getParentHeight() * PERCENTAGE_BUTTONTEXSIZE));
+        titleText.setTextSize(Utils_Dimen.pixelsToSp(activity, config.getParentHeight() * PERCENTAGE_TITLETEXSIZE));
     }
 
     /**

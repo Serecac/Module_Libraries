@@ -7,4 +7,9 @@
     <dimen name="badrate_padding">8dp</dimen>
     <dimen name="badrate_rate">12dp</dimen>
     <dimen name="badrate_bodyRate">16dp</dimen>
+
+    <dimen name="simplerate_padding">8dp</dimen>
+    <dimen name="simplerate_rate">12dp</dimen>
+    <dimen name="simplerate_bodyRate">16dp</dimen>
+
 </resources>

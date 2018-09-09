@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ML_Feedback</string>
 
-    <string name="feedback_thanks">Thank you very much for your assessment</string>
+    <string name="feedback_thanks">Thank you very much for your rating</string>
 
     <string name="askrate_title">Thank you for your rating</string>
     <string name="askrate_remindlater">Later</string>
@@ -13,5 +13,11 @@
     <string name="badrate_nocomment">No thanks</string>
     <string name="badrate_sendcomment">Send suggestion</string>
     <string name="badrate_messsage">The suggestion is empty\nWe want to know your opinion</string>
+
+    <string name="simplerate_title">Thank you for your rating</string>
+    <string name="simplerate_body">If you want to ask a question, leave a suggestion to improve or simply give us your support. We will be very grateful to receive your rating.</string>
+    <string name="simplerate_remindlater">Later</string>
+    <string name="simplerate_norate">No thanks</string>
+    <string name="simplerate_rate">Rate now</string>
 
 </resources>

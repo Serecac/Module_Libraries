@@ -1,5 +1,6 @@
 package com.ml.feedback;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -25,11 +26,12 @@ public class FeedbackManager {
     private Context context;
     private AskRateDialog askRateDialog = null;
     private BadRateDialog badRateDialog = null;
+    private SimpleRateDialog simpleRateDialog = null;
 
     private OnNegativeRateReceive onNegativeRateReceive;
     private OnRateReceive onRateReceive;
 
-    public FeedbackManager(FeedbackConfig config, Context context){
+    public FeedbackManager(FeedbackConfig config, Context context) {
         this.config = config;
         this.context = context;
         this.onNegativeRateReceive = new OnNegativeRateReceive() {
@@ -49,12 +51,12 @@ public class FeedbackManager {
     public static void init(FeedbackConfig config, Context context) throws FeedbackBadConfigException {
 
         if (checkConfig(config))
-            instance = new FeedbackManager(config,context);
+            instance = new FeedbackManager(config, context);
         else
             throw new FeedbackBadConfigException(FEEDBACK_EXCEPTION_BADCONFIG);
     }
 
-    public static FeedbackManager getInstance(){
+    public static FeedbackManager getInstance() {
 
         if (instance == null)
             throw new FeedbackGenericException(FEEDBACK_EXCEPTION_NOTCREATED);
@@ -62,7 +64,11 @@ public class FeedbackManager {
         return instance;
     }
 
-    public void attemptRate(PreferenceManager preferenceManager, LogcatWritter logcatWritter, Context context){
+    public void attemptRate(PreferenceManager preferenceManager, LogcatWritter logcatWritter, Activity activity) {
+        attemptRate(preferenceManager, logcatWritter, activity, true);
+    }
+
+    public void attemptRate(PreferenceManager preferenceManager, LogcatWritter logcatWritter, Activity activity, boolean showStars) {
 
         int attempts = preferenceManager.getInt(PREFERENCE_ATTEMPTS_OPENAPP);
         if (attempts == -1) { //First attempt and no preferenceManager save
@@ -73,16 +79,20 @@ public class FeedbackManager {
             return;
 
         attempts--;
-        if (attempts == 0)
-            askRate(context,logcatWritter);
+        if (attempts == 0) {
+            if (showStars)
+                askRate(activity, logcatWritter);
+            else
+                simpleRate(activity, logcatWritter);
+        }
 
-        preferenceManager.setInt(PREFERENCE_ATTEMPTS_OPENAPP,attempts); //Save new value
+        preferenceManager.setInt(PREFERENCE_ATTEMPTS_OPENAPP, attempts); //Save new value
     }
 
-    private void askRate(final Context context, final LogcatWritter logcatWritter) {
+    private void askRate(final Activity activity, final LogcatWritter logcatWritter) {
 
         if (askRateDialog == null) {
-            askRateDialog = new AskRateDialog(context, config);
+            askRateDialog = new AskRateDialog(activity, config);
 
             askRateDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
                 @Override
@@ -108,7 +118,7 @@ public class FeedbackManager {
                     if (countStars >= MIN_ACCEPTABLE_STARS)
                         launchMarket(logcatWritter);
                     else
-                        badRate(context, countStars);
+                        badRate(activity, countStars);
                     dialog.dismiss();
                     askRateDialog = null;
                 }
@@ -127,10 +137,50 @@ public class FeedbackManager {
         }
     }
 
-    private void badRate(final Context context, final int starts) {
+    private void simpleRate(final Context context, final LogcatWritter logcatWritter) {
 
-        if (badRateDialog == null){
-            badRateDialog = new BadRateDialog(context, config);
+        if (simpleRateDialog == null) {
+            simpleRateDialog = new SimpleRateDialog(context, config);
+
+            simpleRateDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                @Override
+                public void onCancel(DialogInterface dialog) {
+                    PreferenceManager.getInstance().delete(PREFERENCE_ATTEMPTS_OPENAPP);
+                    askRateDialog = null;
+                }
+            });
+
+            simpleRateDialog.setListener(new SimpleRateDialog.Listener() {
+                @Override
+                public void onRate(Dialog dialog) {
+                    onRateReceive.onRateReceive(-1);
+                    launchMarket(logcatWritter);
+                    dialog.dismiss();
+                    simpleRateDialog = null;
+                }
+
+                @Override
+                public void onNoRate(Dialog dialog) {
+                    dialog.dismiss();
+                    simpleRateDialog = null;
+                }
+
+                @Override
+                public void onRemindLater(Dialog dialog) {
+                    PreferenceManager.getInstance().delete(PREFERENCE_ATTEMPTS_OPENAPP);
+                    dialog.dismiss();
+                    simpleRateDialog = null;
+                }
+            });
+
+            simpleRateDialog.show();
+        }
+    }
+
+    private void badRate(final Activity activity, final int starts) {
+
+        if (badRateDialog == null) {
+            badRateDialog = new BadRateDialog(activity, config);
 
             badRateDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
                 @Override
@@ -150,7 +200,7 @@ public class FeedbackManager {
             badRateDialog.setOnSendCommentListener(new BadRateDialog.OnSendComment() {
                 @Override
                 public void onSendComment(Dialog dialog, String comment) {
-                    Utils_Dialog.centerCustomiczeToastMessage(config.getDialogTextColor(),config.getDialogMainColor(),context.getString(R.string.feedback_thanks),context, Utils_Dialog.DURATION_LONG);
+                    Utils_Dialog.customSimpleToast(config.getDialogTextColor(), config.getDialogMainColor(), -1, activity.getString(R.string.feedback_thanks), activity, Utils_Dialog.DURATION_LONG);
                     onNegativeRateReceive.onNegativeRateReceive(comment, starts);
                     dialog.dismiss();
                     badRateDialog = null;
@@ -161,9 +211,9 @@ public class FeedbackManager {
         }
     }
 
-    private static boolean checkConfig(FeedbackConfig config){
+    private static boolean checkConfig(FeedbackConfig config) {
 
-        if (config.getParentHeight() == INT_DEFAULT || config.getParentWidth()  == INT_DEFAULT)
+        if (config.getParentHeight() == INT_DEFAULT || config.getParentWidth() == INT_DEFAULT)
             return false;
 
         if (config.getAttemptToRate() == INT_DEFAULT)
@@ -192,20 +242,20 @@ public class FeedbackManager {
         }
     }
 
-    public void setOnNegativeRateReceiveLister(OnNegativeRateReceive onNegativeRateReceive){
+    public void setOnNegativeRateReceiveLister(OnNegativeRateReceive onNegativeRateReceive) {
         this.onNegativeRateReceive = onNegativeRateReceive;
     }
 
-    public void setOnRateReceiveLister(OnRateReceive onRateReceive){
+    public void setOnRateReceiveLister(OnRateReceive onRateReceive) {
         this.onRateReceive = onRateReceive;
     }
 
-    public interface OnNegativeRateReceive{
+    public interface OnNegativeRateReceive {
 
         void onNegativeRateReceive(String string, int stars);
     }
 
-    public interface OnRateReceive{
+    public interface OnRateReceive {
 
         void onRateReceive(int stars);
     }

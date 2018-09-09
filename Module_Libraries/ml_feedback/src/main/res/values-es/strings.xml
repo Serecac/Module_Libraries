@@ -15,4 +15,10 @@
     <string name="badrate_sendcomment">Enviar sugerencia</string>
     <string name="badrate_messsage">La sugerencia esta vacía\nDeseamos conocer su opinion</string>
 
+    <string name="simplerate_title">Valore su experiencia</string>
+    <string name="simplerate_body">Si quieres hacer una pregunta, deja una sugerencia para mejorar o simplemente darnos tu apoyo. Estaremos muy agradecidos de recibir tu valoración.</string>
+    <string name="simplerate_remindlater">Más adelante</string>
+    <string name="simplerate_norate">No, gracias</string>
+    <string name="simplerate_rate">Valorar ahora</string>
+
 </resources>
