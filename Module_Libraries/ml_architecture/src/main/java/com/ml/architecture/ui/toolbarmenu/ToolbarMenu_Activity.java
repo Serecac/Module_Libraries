@@ -83,6 +83,9 @@ public abstract class ToolbarMenu_Activity extends AppCompatActivity {
                     return;
                 }
 
+                if (saveParent)
+                    childs.getOneFragment(fragmentId).setParentId(actualFragmentId);
+
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 if (anim) {
                     ft.setCustomAnimations(iniAnimID, outAnimID);
@@ -92,9 +95,6 @@ public abstract class ToolbarMenu_Activity extends AppCompatActivity {
                 actualFragmentId = fragmentId;
                 if (config.isWantToolbar())
                     ToolbarManager.getInstance().changeToolbar(toolbar);
-
-                if (saveParent)
-                    childs.getOneFragment(fragmentId).setParentId(actualFragmentId);
 
             } catch (Exception exce) {
                 throw new ToolbarMenu_ArquitectureException(TOOLBARMENU_EXCEPTION_CHANGEFRAGMENT, exce);
